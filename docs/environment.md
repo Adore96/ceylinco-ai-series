@@ -22,6 +22,17 @@ Results recorded here as S1 to S7 are run.
 - `sql/spikes/S1.sql` in SQL Commands: image 779 bytes; answer "Garage: Spike Test Motors, Total: LKR 12,500.00"; 1.4 s.
 - Decision: Week 2 extraction uses `APEX_AI.GENERATE` with `p_attachments`. The `APEX_WEB_SERVICE` fallback is not needed.
 
+### S2: JSON schema output from "claude": FAIL, fallback chosen (20 Nov)
+- `p_response_json_schema` raised ORA-20959 "The incoming JSON Object does not match the specified JSON Schema" on every run, even with a one-field schema (`intent` enum only). APEX validates the reply against the schema (Oracle AI Database 26ai), and the reply did not match.
+- The same call with no schema and the prompt "Reply with only a JSON object like {"intent":"POLICY"}" returned exactly `{"intent":"POLICY"}`.
+- Decision: use the planned fallback everywhere (Week 1 classify, Week 2 extraction, Week 3 intent): ask for JSON in the prompt, check it with `IS JSON` and `JSON_VALUE`, retry once.
+- UNVERIFIED: why schema mode fails with the Anthropic provider (APEX may not pass the schema to Anthropic). Re-test if APEX is patched.
+
+### S3: PL/SQL tool through APEX_AI.GENERATE: PASS (20 Nov)
+- DBMS Output showed `TOOL CALLED with policy_no = LSL-10034`, then "Policy LSL-10034 is **lapsed**. It lapsed on 15 August 2026." (1.4 s). No `apex_session` call was needed in SQL Workshop.
+- Decision: Week 3 tools can be tested from SQL with inline `p_tools`. The AI Agents shared component stays the on-stage UI path.
+- Note: the reply used Markdown bold. Week 3 prompts should ask for plain text.
+
 ### S4: Task Definition approval: PASS (20 Nov)
 - A "Human Task - Create" page process plus a Unified Task List page created a Spike Review task (state Assigned); Approve set it to COMPLETED / APPROVED (checked in `APEX_TASKS`).
 - Decision: Week 2 Case 1 review uses a Task Definition (approval). The status-column fallback is not needed.
