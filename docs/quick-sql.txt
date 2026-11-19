@@ -1,0 +1,102 @@
+# Quick SQL version of the shared schema (for Weeks 2 and 3 slides and demos)
+#
+# WHAT THIS IS: the same 8-table model as sql/00_schema.sql, written in
+# Quick SQL shorthand. Paste everything below the dashed line into
+# SQL Workshop > Utilities > Quick SQL, then click Generate SQL.
+#
+# WHY show it: it lets a SQL audience see a whole data model in 50 lines,
+# and APEX turns it into CREATE TABLE statements.
+#
+# SOURCE OF TRUTH: sql/00_schema.sql. The generated SQL is close, not
+# identical. Known differences:
+#   - Quick SQL "json" becomes CLOB + CHECK (IS JSON); 00_schema.sql uses
+#     the native JSON type.
+#   - Quick SQL adds its own ID columns and may name constraints differently.
+#   - The ESTIMATES <-> CLAIMS loop: Quick SQL creates claims.estimate_id;
+#     00_schema.sql also adds estimates.claim_id with a foreign key.
+#   - CALLS: Quick SQL gives it a numeric ID; 00_schema.sql keys it by the
+#     transcript ID ('CALL-001').
+#   - "tstz" is TIMESTAMP WITH LOCAL TIME ZONE; 00_schema.sql stores
+#     calls.call_time as TIMESTAMP WITH TIME ZONE to keep the +05:30 offset.
+#
+# Docs checked (19 Nov 2026): Quick SQL grammar, github.com/oracle/quicksql
+# (types num, vcNNN, d, ts, tstz, clob, blob, json, vect; directives /nn,
+# /unique, /check, /fk, /default, /between; settings pk, db, prefixPKwithTname).
+# UNVERIFIED: whether the Quick SQL version in APEX 26.2 accepts "db: 23c"
+# and "vect" exactly as the GitHub grammar shows. Run it once before the
+# session and adjust this file if the generator complains.
+# ---------------------------------------------------------------------------
+
+# settings = { db: "23c", pk: "identity", prefixPKwithTname: true, semantics: "char" }
+
+customers
+  nic vc12 /nn /unique
+  full_name vc100 /nn
+  phone vc20
+  email vc100
+  city vc50
+  branch vc50
+
+policies
+  policy_no vc20 /nn /unique
+  customer_id /nn /fk customers
+  policy_type vc5 /nn /check LIFE, MOTOR
+  product_name vc100 /nn
+  sum_assured_lkr num
+  premium_lkr num /nn
+  start_date d /nn
+  end_date d
+  status vc10 /nn /default ACTIVE /check ACTIVE, LAPSED, CANCELLED
+
+vehicles
+  policy_id /nn /fk policies
+  reg_no vc15 /nn /unique
+  make vc30
+  model vc30
+  year num
+  chassis_no vc30
+
+estimates
+  file_name vc255 /nn
+  mime_type vc100 /nn
+  image blob /nn
+  garage_name vc100
+  extracted_json json
+  model_score num /between 0 and 1
+  check_results json
+  review_status vc12 /check AUTO_OK, NEEDS_REVIEW, APPROVED, REJECTED
+  reviewer vc255
+  created_on tstz /nn
+
+claims
+  claim_no vc20 /nn /unique
+  policy_id /nn /fk policies
+  vehicle_id /fk vehicles
+  incident_date d /nn
+  claim_type vc30 /nn
+  status vc10 /nn /default OPEN /check OPEN, ASSESSING, APPROVED, PAID, REJECTED
+  amount_lkr num
+  estimate_id /fk estimates
+
+calls
+  customer_id /fk customers
+  call_time tstz /nn
+  agent_name vc50
+  transcript clob /nn
+  triage_route vc10 /check BOT, SPECIALIST
+  ai_intent vc15 /check POLICY, CLAIM, PRODUCT_BRANCH, OTHER
+  ai_complaint_flag vc1 /check Y, N
+  ai_reply clob
+  reply_status vc11 /check AUTO_SENT, NEEDS_HUMAN
+  ai_summary clob
+
+kb_documents
+  title vc200 /nn
+  doc_type vc10 /nn /check PRODUCT, BRANCH, PROCESS, FAQ
+  body clob /nn
+
+kb_chunks
+  doc_id /nn /fk kb_documents /cascade
+  chunk_no num /nn
+  chunk_text clob /nn
+  embedding vect
