@@ -33,6 +33,12 @@ Results recorded here as S1 to S7 are run.
 - Decision: Week 3 tools can be tested from SQL with inline `p_tools`. The AI Agents shared component stays the on-stage UI path.
 - Note: the reply used Markdown bold. Week 3 prompts should ask for plain text.
 
+### S5: ORDS GET endpoint via ORDS.DEFINE_SERVICE: PASS (20 Nov)
+- The schema was already REST-enabled (`USER_ORDS_SCHEMAS` returned one row, status ENABLED), so STEP 1B was not needed.
+- `ORDS.DEFINE_SERVICE` with `source_type_collection_item` worked from SQL Commands. In a browser, `https://oracleapex.com/ords/<alias>/spike/policies/LSM-20015` returned one JSON object (policy_no, holder_name, policy_type, status, premium_lkr, next_due_date, links).
+- Dates come back as ISO timestamps in UTC (`2026-12-20T00:00:00Z`).
+- The endpoint has no authentication. That is fine for synthetic show-only data; the Week 3 production block must mention ORDS privileges/OAuth.
+
 ### S4: Task Definition approval: PASS (20 Nov)
 - A "Human Task - Create" page process plus a Unified Task List page created a Spike Review task (state Assigned); Approve set it to COMPLETED / APPROVED (checked in `APEX_TASKS`).
 - Decision: Week 2 Case 1 review uses a Task Definition (approval). The status-column fallback is not needed.
