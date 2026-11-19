@@ -16,8 +16,9 @@
 -- HOW TO RUN: SQL Workshop > SQL Commands, one step at a time.
 --
 -- Docs checked (19 Nov 2026):
---   Oracle APEX blog "Oracle APEX 26.2: Developer and administration
---   updates": REST Workshop removed in 26.2, existing ORDS modules stay.
+--   Oracle APEX 26.2 New Features deck (oracle.com) and the APEX blog
+--   post blogs.oracle.com/apex/?p=4453: REST Workshop removed in 26.2,
+--   existing ORDS modules stay, authoring moves to SQL Developer Web.
 --   ORDS 25.2 Developer's Guide, ORDS PL/SQL Package Reference:
 --   ORDS.ENABLE_SCHEMA ("Any user can enable or disable their own
 --   schema"), ORDS.DEFINE_SERVICE, ORDS.DELETE_MODULE,
