@@ -56,6 +56,8 @@ AGENT: Let me check that for you.~';
 
     l_answer   clob;
     l_is_json  number;
+    l_intent   varchar2(30);
+    l_ref      varchar2(50);
     l_clean    pls_integer := 0;
 begin
     for i in 1 .. 3 loop
@@ -68,16 +70,21 @@ begin
         sys.dbms_output.put_line( 'Run ' || i || ': ' || l_answer );
 
         -- WHY check with SQL: this is the same check Week 2 and 3 code will use.
-        select count(*) into l_is_json from dual where l_answer is json;
+        -- JSON_VALUE returns NULL (not an error) when the text is not JSON.
+        select case when l_answer is json then 1 else 0 end,
+               json_value( l_answer, '$.intent' ),
+               json_value( l_answer, '$.reference' )
+          into l_is_json, l_intent, l_ref
+          from dual;
 
-        if l_is_json = 1 and json_value( l_answer, '$.intent' ) is not null then
+        if l_is_json = 1 and l_intent is not null then
             l_clean := l_clean + 1;
         end if;
 
         sys.dbms_output.put_line( 'Run ' || i
             || ': valid JSON = ' || case l_is_json when 1 then 'Y' else 'N' end
-            || ', intent = '     || json_value( l_answer, '$.intent' )
-            || ', reference = '  || json_value( l_answer, '$.reference' ) );
+            || ', intent = '     || l_intent
+            || ', reference = '  || l_ref );
     end loop;
 
     sys.dbms_output.put_line( 'Clean runs: ' || l_clean || ' of 3' );
