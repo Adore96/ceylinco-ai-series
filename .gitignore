@@ -1,1 +1,3 @@
-docs/plan.html
+.env
+*.key
+secrets/

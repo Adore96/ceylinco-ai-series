@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI in Oracle APEX: three-session plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --ink:#24262b; --muted:#62666e; --line:#e3e4e8; --soft:#f6f6f8;
+  --accent:#ef6a1b; --accent-soft:#fff0e6; --seg:#3a3d44; --seg2:#6b6f78; --break:#e9eaee;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#17181b; --ink:#ececef; --muted:#a3a6ae; --line:#2f3137; --soft:#1f2024;
+    --accent:#ff8a3d; --accent-soft:#3a2416; --seg:#c9cbd1; --seg2:#8d9099; --break:#2a2c31;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17181b; --ink:#ececef; --muted:#a3a6ae; --line:#2f3137; --soft:#1f2024;
+  --accent:#ff8a3d; --accent-soft:#3a2416; --seg:#c9cbd1; --seg2:#8d9099; --break:#2a2c31;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:56px 24px 96px}
+h1,h2,h3{font-family:Syne,"DM Sans",system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,5.5vw,3.1rem);font-weight:800;letter-spacing:-.02em;max-width:17ch}
+h2{font-size:1.55rem;font-weight:700;margin:64px 0 16px;padding-top:20px;border-top:2px solid var(--ink)}
+h2.session{font-size:clamp(1.8rem,4.5vw,2.4rem);font-weight:800;border-top:6px solid var(--accent);margin-top:88px}
+h2.session small{display:block;font-family:"DM Sans",system-ui,sans-serif;font-size:1rem;font-weight:500;color:var(--muted);margin-bottom:6px}
+h3{font-size:1.1rem;font-weight:700;margin:28px 0 8px}
+p{margin:0 0 14px;max-width:70ch}
+ul{margin:0 0 14px;padding-left:20px;max-width:70ch}
+li{margin:4px 0}
+a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.brand{font-weight:500;color:var(--muted);margin-bottom:28px}
+.brand b{color:var(--accent);font-weight:700}
+.lede{font-size:1.15rem;color:var(--muted);margin-top:18px;max-width:60ch}
+dl.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px 28px;margin:36px 0 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+dl.meta dt{font-size:.85rem;color:var(--muted)}
+dl.meta dd{margin:2px 0 0;font-weight:500}
+nav.jump{display:flex;flex-wrap:wrap;gap:8px 22px;margin:20px 0 0;font-weight:500}
+
+.spine{margin:22px 0 26px}
+.spine-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.spine-title b{font-family:Syne,"DM Sans",sans-serif;font-size:1.05rem}
+.spine-title span{color:var(--muted);font-size:.9rem}
+.bar{display:flex;height:56px;border-radius:6px;overflow:hidden;gap:2px}
+.bar span{display:flex;align-items:flex-end;padding:6px 8px;font-size:.78rem;font-weight:700;color:var(--bg);white-space:nowrap;overflow:hidden}
+.bar .c{background:var(--seg)}
+.bar .c2{background:var(--seg2)}
+.bar .a{background:var(--accent);color:#fff}
+.bar .b{background:repeating-linear-gradient(135deg,var(--break) 0 6px,transparent 6px 12px);background-color:var(--soft);color:var(--muted)}
+.ticks{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-top:6px}
+
+.tbl{overflow-x:auto;margin:14px 0 18px;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.94rem}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+th{font-weight:700;background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.must{background:var(--accent-soft);color:var(--accent)}
+.nice{background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+
+.anchor{margin:22px 0;padding:18px 22px;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 6px 6px 0}
+.anchor p{margin:0;font-family:Syne,"DM Sans",sans-serif;font-weight:700;font-size:1.2rem}
+.anchor small{display:block;margin-top:6px;color:var(--muted);font-size:.92rem}
+
+ol.sections{list-style:none;padding:0;margin:0;counter-reset:s}
+ol.sections>li{counter-increment:s;padding:20px 0;border-bottom:1px solid var(--line);margin:0}
+ol.sections>li:last-child{border-bottom:0}
+.sec-head{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.sec-head h3{margin:0}
+.sec-head h3::before{content:counter(s) ". ";color:var(--accent)}
+.mins{color:var(--muted);font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+.live{color:var(--accent);font-weight:700}
+.note{font-size:.9rem;color:var(--muted)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 36px}
+footer{margin-top:72px;font-size:.88rem;color:var(--muted)}
+@media (max-width:560px){
+  .bar span{font-size:0;padding:0}
+  .wrap{padding-top:36px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<p class="brand"><b>Noob Dev</b> for Ceylinco</p>
+<h1>AI in Oracle APEX</h1>
+<p class="lede">Three Wednesday sessions for senior technical staff who know Oracle and SQL well and are new to APEX. Week 1 covers APEX and the latest Oracle AI features. Weeks 2 and 3 build two AI workflows live, modelled on Ceylinco's own use cases: garage estimate processing and an intelligent call centre.</p>
+
+<dl class="meta">
+  <div><dt>Audience</dt><dd>Senior technical leads, strong in Oracle and SQL, new to APEX and AI</dd></div>
+  <div><dt>Schedule</dt><dd>Wednesdays 25 November, 2 December and 9 December</dd></div>
+  <div><dt>Format</dt><dd>3.5 hours each; talk and live demos, no laptops needed</dd></div>
+  <div><dt>Presenter</dt><dd>Kasun Perera</dd></div>
+</dl>
+<p class="note">Builds on the 18 November session by a Noob Dev colleague, which covers AI basics and n8n.</p>
+
+<nav class="jump" aria-label="Jump to section">
+  <a href="#week-1">Week 1</a>
+  <a href="#week-2">Week 2</a>
+  <a href="#week-3">Week 3</a>
+  <a href="#app">The application</a>
+  <a href="#timeline">Preparation timeline</a>
+</nav>
+
+<h2>The series at a glance</h2>
+<div class="spine" role="img" aria-label="Week 1 timeline across 210 minutes">
+  <div class="spine-title"><b>Week 1: APEX and Oracle AI, component by component</b><span>210 min</span></div>
+  <div class="bar">
+    <span class="c2" style="flex:15">Bridge</span>
+    <span class="c" style="flex:20">APEX tour</span>
+    <span class="c" style="flex:30">Oracle AI</span>
+    <span class="b" style="flex:15">Break</span>
+    <span class="a" style="flex:85">Components and their AI</span>
+    <span class="b" style="flex:10">Break</span>
+    <span class="c" style="flex:25">Two cases</span>
+    <span class="c2" style="flex:10">Q&amp;A</span>
+  </div>
+</div>
+<div class="spine" role="img" aria-label="Week 2 timeline across 210 minutes">
+  <div class="spine-title"><b>Week 2: Core app and garage estimate AI</b><span>210 min</span></div>
+  <div class="bar">
+    <span class="c2" style="flex:10">Recap</span>
+    <span class="c" style="flex:20">Data</span>
+    <span class="a" style="flex:45">Core app</span>
+    <span class="b" style="flex:15">Break</span>
+    <span class="a" style="flex:35">Extract</span>
+    <span class="b" style="flex:10">Break</span>
+    <span class="a" style="flex:50">Check, approve, save</span>
+    <span class="c2" style="flex:25">Q&amp;A</span>
+  </div>
+</div>
+<div class="spine" role="img" aria-label="Week 3 timeline across 210 minutes">
+  <div class="spine-title"><b>Week 3: Intelligent call centre</b><span>210 min</span></div>
+  <div class="bar">
+    <span class="c2" style="flex:10">Recap</span>
+    <span class="c" style="flex:15">Triage</span>
+    <span class="a" style="flex:25">Intent</span>
+    <span class="b" style="flex:15">Break</span>
+    <span class="a" style="flex:40">Tools + agent</span>
+    <span class="a" style="flex:45">RAG</span>
+    <span class="b" style="flex:10">Break</span>
+    <span class="c" style="flex:20">Reply</span>
+    <span class="c" style="flex:15">Prod</span>
+    <span class="c2" style="flex:15">Wrap</span>
+  </div>
+  <div class="ticks"><span>0 min</span><span>105</span><span>210 min</span></div>
+</div>
+
+<div class="anchor">
+  <p>APEX is SQL with a screen.</p>
+  <small>The thread through the series. Every component starts from a query the audience could already write, and every AI feature is shown after the normal version, never instead of it.</small>
+</div>
+
+<!-- WEEK 1 -->
+<h2 class="session" id="week-1"><small>Week 1, 25 November</small>APEX and Oracle AI, component by component</h2>
+<h3>What attendees leave with</h3>
+<ul>
+  <li>A working map of APEX: workspace, SQL Workshop, App Builder, pages, shared components.</li>
+  <li>For each main component, what it does on its own and what AI adds to it.</li>
+  <li>An understanding of the AI features in the latest Oracle AI Database, shown in plain SQL.</li>
+</ul>
+<h3>Running order</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Block</th><th>Minutes</th><th>Content</th></tr></thead>
+  <tbody>
+    <tr><td>Bridge from the previous session</td><td class="num">15</td><td>n8n and APEX: two low-code tools, and when to use which</td></tr>
+    <tr><td>APEX tour</td><td class="num">20</td><td>How APEX runs (browser, ORDS, APEX engine inside the database, external AI services); workspace, SQL Workshop, App Builder; APEX as SQL with a screen</td></tr>
+    <tr><td>Oracle AI Database updates</td><td class="num">30</td><td><span class="live">Live:</span> vector similarity in plain SQL; chunking inside the database; Select AI explained</td></tr>
+    <tr><td>Break</td><td class="num">15</td><td></td></tr>
+    <tr><td>Components and their AI</td><td class="num">85</td><td>Normal first, then AI, for each component below</td></tr>
+    <tr><td>Break</td><td class="num">10</td><td></td></tr>
+    <tr><td>The two cases, mapped to APEX</td><td class="num">25</td><td>Garage estimate processing and the intelligent call centre: each step of each workflow matched to the APEX component that builds it in weeks 2 and 3</td></tr>
+    <tr><td>Q&amp;A</td><td class="num">10</td><td></td></tr>
+  </tbody>
+</table></div>
+<div class="tbl"><table>
+  <thead><tr><th>Component</th><th>Normal use</th><th>What AI adds</th></tr></thead>
+  <tbody>
+    <tr><td>Create App wizard</td><td>Generate an app from tables or a spreadsheet</td><td><span class="live">Live:</span> create an app from a plain-language description</td></tr>
+    <tr><td>Pages and regions</td><td>Reports, forms, cards, charts</td><td>An AI chat region inside a page</td></tr>
+    <tr><td>Processes and PL/SQL</td><td>Business logic on submit</td><td><span class="live">Live:</span> classify sample call transcripts with one AI call from SQL</td></tr>
+    <tr><td>Shared components: AI services</td><td>Connections configured once per workspace</td><td><span class="live">Live:</span> connect an AI model as a Generative AI Service</td></tr>
+    <tr><td>Shared components: vector providers</td><td>Turning text into embeddings</td><td>The basis of AI search over documents</td></tr>
+    <tr><td>Shared components: AI agents</td><td>Reusable logic and tools</td><td>An assistant that can call approved PL/SQL tools</td></tr>
+    <tr><td>Workflows and task definitions</td><td>Approvals and human tasks</td><td>A person approves what the AI proposes (used for low-confidence estimates in week 2)</td></tr>
+  </tbody>
+</table></div>
+
+<!-- WEEK 2 -->
+<h2 class="session" id="week-2"><small>Week 2, 2 December</small>Core app and garage estimate AI</h2>
+<h3>What attendees leave with</h3>
+<ul>
+  <li>A complete APEX application built in front of them, from tables to a working app.</li>
+  <li>A document AI workflow: a garage estimate image goes in, structured claim data comes out.</li>
+  <li>A pattern for trusting AI output: SQL checks plus a confidence score, with a person approving anything uncertain.</li>
+</ul>
+<h3>Running order</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Block</th><th>Minutes</th><th>Content</th></tr></thead>
+  <tbody>
+    <tr><td>Recap of week 1</td><td class="num">10</td><td></td></tr>
+    <tr><td>Data model</td><td class="num">20</td><td>Customers, life and motor policies, vehicles, claims, estimates, calls; tables from SQL scripts and Quick SQL</td></tr>
+    <tr><td>Core app</td><td class="num">45</td><td>Create App wizard; Customer 360 page with policies, vehicles and claims</td></tr>
+    <tr><td>Break</td><td class="num">15</td><td></td></tr>
+    <tr><td>Estimate upload and AI extraction</td><td class="num">35</td><td><span class="live">Live:</span> upload a garage estimate image; the AI model reads it and returns structured JSON (garage, vehicle, line items, total)</td></tr>
+    <tr><td>Break</td><td class="num">10</td><td></td></tr>
+    <tr><td>Check, approve, save</td><td class="num">50</td><td>SQL checks on the JSON (required fields, line items add up, vehicle matches an active motor policy) plus the model's own score; low confidence goes to a person through an approval task; approved estimates become claims</td></tr>
+    <tr><td>Q&amp;A</td><td class="num">25</td><td></td></tr>
+  </tbody>
+</table></div>
+
+<div class="anchor">
+  <p>Trust the checks, not the model's opinion of itself.</p>
+  <small>AI reads the document; SQL decides whether the result is good enough; a person signs off when it is not.</small>
+</div>
+
+<!-- WEEK 3 -->
+<h2 class="session" id="week-3"><small>Week 3, 9 December</small>Intelligent call centre</h2>
+<h3>What attendees leave with</h3>
+<ul>
+  <li>An AI step that recognises what a caller wants (policy, claim or product and branch question) from a call transcript.</li>
+  <li>An AI agent that answers policy and claim questions through approved PL/SQL tools, also exposed as REST APIs.</li>
+  <li>Document question-answering (RAG) built inside the Oracle database with SQL.</li>
+  <li>A view of what changes when this moves to production on their own Oracle environment.</li>
+</ul>
+<h3>Running order</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Block</th><th>Minutes</th><th>Content</th></tr></thead>
+  <tbody>
+    <tr><td>Recap of week 2</td><td class="num">10</td><td></td></tr>
+    <tr><td>Triage</td><td class="num">15</td><td>A call agent routes each call; accidents and complaints go to a specialist queue, and AI flags any that were missed</td></tr>
+    <tr><td>Intent</td><td class="num">25</td><td>AI classifies each transcript as a policy, claim or product and branch question</td></tr>
+    <tr><td>Break</td><td class="num">15</td><td></td></tr>
+    <tr><td>Tools and AI agent</td><td class="num">40</td><td>Policy and claim status as PL/SQL tools the agent can call, and the same logic shown as REST endpoints; a caller asks about the claim created in week 2</td></tr>
+    <tr><td>RAG knowledge base</td><td class="num">45</td><td>Product and branch documents in a table, chunked in the database, embedded, and searched by meaning</td></tr>
+    <tr><td>Break</td><td class="num">10</td><td></td></tr>
+    <tr><td>Reply and end-to-end run</td><td class="num">20</td><td>The answer is written for the caller; uncertain answers go to a person; full run from transcript to reply</td></tr>
+    <tr><td>Production on their Oracle</td><td class="num">15</td><td>Voice (telephony, speech-to-text, text-to-speech), logging, cost, keys, and what Autonomous Database adds</td></tr>
+    <tr><td>Q&amp;A and series wrap</td><td class="num">15</td><td></td></tr>
+  </tbody>
+</table></div>
+<p class="note">Voice is out of scope on stage: the session works from text transcripts, and the production block shows where telephony, speech-to-text and text-to-speech plug in.</p>
+
+<div class="anchor">
+  <p>RAG is a search query before the answer.</p>
+  <small>For a SQL audience: retrieve the right rows first, then let the AI write the answer from them.</small>
+</div>
+
+<!-- APP -->
+<h2 id="app">The application</h2>
+<p>One application for a fictional insurer that sells life and motor cover, built on stage across weeks 2 and 3. All data is synthetic: sample garage estimates, call transcripts and product documents.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Feature</th><th>Week</th><th>AI</th></tr></thead>
+  <tbody>
+    <tr><td>Customer 360: customer, policies, vehicles and claims on one page</td><td>2</td><td>None</td></tr>
+    <tr><td>Garage estimate processing</td><td>2</td><td>Image to JSON extraction, SQL checks, human approval task</td></tr>
+    <tr><td>Call triage and intent</td><td>3</td><td>AI classification with a complaint safety flag</td></tr>
+    <tr><td>Policy and claim answers</td><td>3</td><td>AI agent with PL/SQL tools (also as REST endpoints)</td></tr>
+    <tr><td>Product and branch answers</td><td>3</td><td>Vector search and RAG</td></tr>
+  </tbody>
+</table></div>
+<div class="tbl"><table>
+  <thead><tr><th>Platform</th><th>Choice</th></tr></thead>
+  <tbody>
+    <tr><td>Environment</td><td>Free Oracle APEX workspace: APEX 26.2 on Oracle AI Database 26ai</td></tr>
+    <tr><td>AI model</td><td>Anthropic Claude, configured as an APEX Generative AI Service (text and images)</td></tr>
+    <tr><td>Embeddings</td><td>Google Gemini, configured as an APEX vector provider</td></tr>
+    <tr><td>Safety net</td><td>The app is exported at every build stage; if a live step fails, the stage is imported and the session continues</td></tr>
+    <tr><td>Shared afterwards</td><td>A GitHub repository with the per-stage exports, SQL scripts and a written build guide</td></tr>
+  </tbody>
+</table></div>
+<p class="note">Further reading: plain-language articles on the main AI concepts at <a href="https://medium.com/@adorekasun">medium.com/@adorekasun</a>, alongside official Oracle documentation.</p>
+
+<h2 id="timeline">Preparation timeline</h2>
+<div class="tbl"><table>
+  <thead><tr><th>Dates</th><th>Work</th></tr></thead>
+  <tbody>
+    <tr><td>17 to 24 November</td><td>Platform checks for every AI feature used; data model; sample call transcripts; week 1 demo scripts and deck; sample garage estimates; rehearsal. Week 1 delivered 25 November.</td></tr>
+    <tr><td>26 November to 1 December</td><td>Rehearsal build of the core app and garage estimate workflow with stage exports; week 2 deck. Week 2 delivered 2 December.</td></tr>
+    <tr><td>3 to 8 December</td><td>Knowledge base documents, embeddings, RAG scripts, call-centre agent and tools; stage exports; week 3 deck. Week 3 delivered 9 December.</td></tr>
+  </tbody>
+</table></div>
+
+<footer>Draft plan v2 prepared by Kasun Perera, Noob Dev, updated to include Ceylinco's two use cases. Subject to change after review.</footer>
+</main>
+</body>
+</html>
