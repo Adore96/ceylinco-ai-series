@@ -6,7 +6,7 @@
 --      column plus a plain review page.
 --
 -- BEFORE YOU RUN: create the Task Definition by clicking (docs/spikes.md,
---   section S4). Static ID must be SPIKE_REVIEW.
+--   section S4). Static ID must be spike-review (APEX 26.2 fills it in from the name).
 --
 -- HOW TO RUN: SQL Workshop > SQL Commands. Replace the two values below
 --   (App ID and username, same as the Task Definition). Paste. Run.
@@ -31,8 +31,8 @@
 --   is unchanged, so no change is expected.
 -- =====================================================================
 declare
-    c_app_id   constant number       := 100;                  -- your "Noob Dev Spikes" App ID
-    c_user     constant varchar2(255) := 'YOUR_APEX_USERNAME'; -- your login, in capitals
+    c_app_id   constant number       := 205712;                  -- your "Noob Dev Spikes" App ID
+    c_user     constant varchar2(255) := 'ADOREKASUN@GMAIL.COM'; -- your login, in capitals
 
     l_task_id  number;
     l_state    varchar2(32);
@@ -57,7 +57,7 @@ begin
 
     l_task_id := apex_human_task.create_task (
         p_application_id         => c_app_id,
-        p_task_def_static_id     => 'SPIKE_REVIEW',
+        p_task_def_static_id     => 'spike-review',
         p_subject                => 'S4 spike: review estimate EST-TEST',
         p_initiator              => c_user,
         -- WHY: by default the person who starts an approval cannot approve it.

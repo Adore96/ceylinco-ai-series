@@ -59,8 +59,8 @@ Run the files in order. Each file's header lists the expected output and the PAS
 ## S4: Task Definition (clicks, then SQL)
 
 1. App `Noob Dev Spikes` > Shared Components > Workflows and Automations > **Task Definitions** > Create.
-2. Name: `Spike Review`. Type: **Approval Task**. Subject: `Spike review`. Static ID: `SPIKE_REVIEW`. Priority: 3.
-3. Potential Owner: `YOUR_APEX_USERNAME`. Business Admin: `YOUR_APEX_USERNAME`. Create.
+2. Name: `Spike Review`. Type: **Approval Task**. Subject: `Spike review`. Priority: 3. APEX 26.2 fills in the Static ID from the name as `spike-review` (Advanced section, locked). `S4.sql` uses that value.
+3. Create. Then, under **Participants**, click **Add Participant** twice: one row with Participant Type **Potential Owner**, one with **Business Administrator**. Both: Identity Type User, Value Type Static, Static Value `YOUR_APEX_USERNAME`. (Seen on 26.2: the create wizard can finish with no participants, so check the Participants list shows 2 rows.)
 4. On the Task Definition page: **Initiator Can Complete** = On. If it asks for a Task Details Page, click **Create Task Details Page**. Apply Changes.
 5. Run `sql/spikes/S4.sql` in SQL Commands (replace App ID and username first).
 
