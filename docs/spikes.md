@@ -9,7 +9,7 @@ Results go into `docs/environment.md` once all seven are run.
 | S1 | Can `APEX_AI.GENERATE` send an image to "claude"? | `sql/spikes/S1.sql` | Call the Anthropic API with `APEX_WEB_SERVICE` + base64 image |
 | S2 | Does "claude" follow a JSON schema every time? | `sql/spikes/S2.sql` | JSON asked for in the prompt, checked with `IS JSON`, one retry |
 | S3 | Can the model call a PL/SQL tool? | `sql/spikes/S3.sql` | AI Agents shared component only; else route by intent in PL/SQL |
-| S4 | Can we create and approve a Task Definition task? | clicks below + `sql/spikes/S4.sql` | Status column + review page |
+| S4 | Can we create and approve a Task Definition task? | clicks below; `sql/spikes/S4.sql` checks the result | Status column + review page |
 | S5 | Can we publish a GET endpoint and open it in a browser? | `sql/spikes/S5.sql` | Slide only |
 | S6 | Can a Gemini Vector Provider embed a sentence? | clicks below + `sql/spikes/S6.sql` | Embeddings computed outside, loaded as data |
 | S7 | Do natural-language Interactive Reports and an AI Agent run work? | clicks below + `sql/spikes/S7.sql` | Leave them out of live demos |
@@ -56,19 +56,29 @@ Run the files in order. Each file's header lists the expected output and the PAS
 
 ---
 
-## S4: Task Definition (clicks, then SQL)
+## S4: Task Definition (clicks only, then a check query)
 
+**Do not test task APIs from SQL Workshop.** `APEX_HUMAN_TASK.CREATE_TASK` fails there with "Task definition not found", and `apex_session.create_session` / `delete_session` in SQL Workshop sign you out of APEX. The test runs inside the app instead, which is also how Week 2 uses approvals.
+
+**Task Definition:**
 1. App `Noob Dev Spikes` > Shared Components > Workflows and Automations > **Task Definitions** > Create.
-2. Name: `Spike Review`. Type: **Approval Task**. Subject: `Spike review`. Priority: 3. APEX 26.2 fills in the Static ID from the name as `spike-review` (Advanced section, locked). `S4.sql` uses that value.
-3. Create. Then, under **Participants**, click **Add Participant** twice: one row with Participant Type **Potential Owner**, one with **Business Administrator**. Both: Identity Type User, Value Type Static, Static Value `YOUR_APEX_USERNAME`. (Seen on 26.2: the create wizard can finish with no participants, so check the Participants list shows 2 rows.)
-4. On the Task Definition page: **Initiator Can Complete** = On. If it asks for a Task Details Page, click **Create Task Details Page**. Apply Changes.
-5. Run `sql/spikes/S4.sql` in SQL Commands (replace App ID and username first).
+2. Name: `Spike Review`. Type: **Approval Task**. Subject: `Spike review`. Priority: 3. APEX 26.2 fills in the Static ID from the name as `spike-review` (Advanced section, locked).
+3. Create. Then, under **Participants**, click **Add Participant** twice: one row with Participant Type **Potential Owner**, one with **Business Administrator**. Both: Identity Type User, Value Type Static, Static Value = your APEX username. (Seen on 26.2: the create wizard can finish with no participants, so check the list shows 2 rows.)
+4. **Initiator Can Complete** = On. If it asks for a Task Details Page, click **Create Task Details Page**. Apply Changes.
 
 Why "Initiator Can Complete": by default the person who starts an approval cannot approve it. In this solo test you are both.
 
-Docs: "Creating a Task Definition", APEX 26.1 App Builder Guide (wizard fields Name, Type, Subject, Static ID, Priority, Potential Owner, Business Admin).
+**Inbox page and a button that creates a task:**
+5. App > Create Page > Component > **Unified Task List**. Name: `My Tasks`. Report Context: My Tasks. Create Page.
+6. In Page Designer (page My Tasks), right-click the **Breadcrumb** region > **Create Button**. Button Name: `CREATE_SPIKE_TASK`. Label: `Create spike task`. Action: Submit Page (default).
+7. Processing tab > right-click **Processing** > **Create Process**. Name: `Create spike task`. Type: **Human Task - Create**. Definition: **Spike Review**. Server-side Condition > When Button Pressed: `CREATE_SPIKE_TASK`. Save.
 
-Optional, for the Week 1 tour: App > Create Page > **Unified Task List**. Run it to see the task in the inbox UI.
+**Run it:**
+8. Run the page (log in to the app with your APEX login). Click **Create spike task**. A "Spike Review" row appears, state **Assigned**.
+9. Click **Approve** on that row. Expect the message "Task approved".
+10. Check in SQL Commands with `sql/spikes/S4.sql`. PASS: `COMPLETED` / `APPROVED`.
+
+Docs: "Creating a Task Definition", "Creating Tasks from Task Definitions" (Human Task - Create process) and "Runtime Views for Tasks", APEX App Builder User's Guide.
 
 ---
 
