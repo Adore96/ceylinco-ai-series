@@ -46,13 +46,13 @@ UNVERIFIED: the exact wizard labels in 26.2. If they differ, any wizard path tha
 **C. Point the app at the "claude" service.** App > Shared Components > Generative AI > **AI Attributes**. Generative AI Service: `claude`. Apply Changes.
 (Docs: "Adding Natural Language Support to Interactive Reports", APEX 26.1 App Builder Guide: the service must be selected in AI Attributes.)
 
-**D. Your username.** S3 STEP 2B, S4 and S7 ask for `YOUR_APEX_USERNAME`. Use your APEX login name in capitals. S3/S4/S7 also ask for the App ID from step B. Replace them in the SQL Commands editor only, never in the repo file.
+**D. Never open an APEX session from SQL Workshop.** `apex_session.create_session` / `delete_session` there replace your builder session and sign you out. Anything that needs the app's session (tasks, agents) is tested by running an app page.
 
 ---
 
 ## S1, S2, S3
 
-Run the files in order. Each file's header lists the expected output and the PASS rule. S3 has STEP 1 and STEP 2 (STEP 2B only if STEP 2 fails with a session or application error).
+Run the files in order. Each file's header lists the expected output and the PASS rule. S3 has STEP 1 and STEP 2.
 
 ---
 
@@ -131,18 +131,21 @@ UNVERIFIED: which Gemini model names the APEX 26.2 form accepts, and whether the
 
 Docs: "Adding Natural Language Support to Interactive Reports", APEX 26.1 App Builder Guide. It applies filters, highlights, sorts, breaks and charts. It does not answer open questions like "why".
 
-**S7b, AI Agent (clicks, then SQL):**
+**S7b, AI Agent (clicks only):**
 1. App > Shared Components > Generative AI > **AI Agents** > Create.
 2. Name: `Spike Agent`. Service: `claude`. Response Format: **Text**.
 3. System Prompt: `You answer questions about insurance policies. Use the get_policies tool. Only use data the tool returns. If the data does not answer the question, say so.`
-4. Advanced > Static ID: `spike_agent`. Create.
+4. Advanced > Static ID: `spike_agent` (APEX 26.2 may suggest `spike-agent`; either is fine, just use the same one below). Create.
 5. Tools tab > **Add Tool**.
 6. Name: `get_policies`. Type: **Retrieve Data**. Execution Point: **On Demand**.
 7. Description: `Returns all policies with number, holder, type, status, premium in LKR and next due date.`
 8. Settings > Type: **SQL Query**:
    `select policy_no, holder_name, policy_type, status, premium_lkr, next_due_date from spike_policies`
 9. Create.
-10. Run **STEP 2 of `sql/spikes/S7.sql`** in SQL Commands (replace App ID and username).
+10. Page Designer, page `Policies`: add a button `ASK_AGENT` (label `Ask agent`, Action: Defined by Dynamic Action). Add a Dynamic Action on its Click event with action **Show AI Assistant**, AI Agent: `Spike Agent`.
+11. Run the page, click **Ask agent**, and ask:
+    `Which ACTIVE motor policies have a premium due before 31 January 2027? Give policy number, holder and due date.`
+12. PASS: the answer is only LSM-20015, Nuwan Bandara, due 20 December 2026 (LSM-20007 is due March 2027; LSM-20022 is CANCELLED).
 
 Docs: "Managing AI Agents and AI Tools", APEX 26.1 App Builder Guide. `APEX_AI.GENERATE` Signature 1 (`p_agent_static_id`), APEX 26.1 API Reference.
 
@@ -155,7 +158,7 @@ Copy this, fill it in, paste it. Include the full output or error text for anyth
 ```
 S1: PASS/FAIL  -
 S2: PASS/FAIL  - clean runs: _ of 3
-S3: PASS/FAIL  - needed STEP 2B? yes/no
+S3: PASS/FAIL  -
 S4: PASS/FAIL  -
 S5: PASS/FAIL  - ORDS enabled already? yes/no
 S6: PASS/FAIL  - model: ____  dimensions: ____

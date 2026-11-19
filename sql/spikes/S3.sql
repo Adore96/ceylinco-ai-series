@@ -9,16 +9,18 @@
 --
 -- HOW TO RUN: SQL Workshop > SQL Commands. This file has 2 steps.
 --   Paste STEP 1 alone and run it. Then paste STEP 2 alone and run it.
---   Run STEP 2B only if STEP 2 fails with an error about a session or an
---   application.
+--   If STEP 2 fails with a session or application error, do NOT add
+--   apex_session.create_session: in SQL Workshop it signs you out of APEX
+--   (seen in S4, 20 Nov 2026). Record the error; S7 then tests tools
+--   through an AI Agent inside the app.
 --
 -- Docs checked (19 Nov 2026): APEX_AI.GENERATE Signature 2, Example 3
 --   (tool with callback_procedure), APEX 26.1 and 26.2 API Reference.
 --   APEX_AI Data Types, APEX 26.2 (t_tool, t_tool_parameter,
 --   t_tool_exec_param, t_tool_exec_result).
 -- UNVERIFIED: Oracle's tool examples first call apex_session.create_session
---   with an app ID. SQL Workshop already has an APEX session (docs/environment.md shows
---   APEX_AI.GENERATE works there), so STEP 2 tries without it first.
+--   with an app ID. SQL Workshop already has an APEX session (docs/environment.md
+--   shows APEX_AI.GENERATE works there), so STEP 2 runs without it.
 -- =====================================================================
 
 
@@ -80,50 +82,5 @@ begin
         p_max_tool_roundtrips => 3 );
 
     sys.dbms_output.put_line( 'Answer: ' || l_answer );
-end;
-/
-
-
--- ---------------------------------------------------------------------
--- STEP 2B (only if STEP 2 failed with a session or application error):
--- same call inside a new APEX session for the spike app.
--- Replace 100 with the App ID of your "Noob Dev Spikes" app (see
--- docs/spikes.md, Setup). Replace YOUR_APEX_USERNAME with your login name
--- in capitals.
--- ---------------------------------------------------------------------
-declare
-    l_answer clob;
-begin
-    apex_session.create_session (
-        p_app_id   => 100,
-        p_page_id  => 1,
-        p_username => 'YOUR_APEX_USERNAME' );
-
-    l_answer := apex_ai.generate (
-        p_service_static_id => 'claude',
-        p_prompt            => 'What is the status of policy LSL-10034?',
-        p_system_prompt     => 'You are a call-centre assistant. Always use the tool to check a policy. Never guess.',
-        p_tools             =>
-            apex_ai.t_tools (
-                apex_ai.t_tool (
-                    name               => 'get_policy_status',
-                    description        => 'Returns the status of one insurance policy as JSON.',
-                    parameters         =>
-                        apex_ai.t_tool_parameters (
-                            apex_ai.t_tool_parameter (
-                                name        => 'policy_no',
-                                description => 'Policy number, for example LSL-10021',
-                                data_type   => apex_ai.c_tool_param_type_varchar2,
-                                is_required => true ) ),
-                    callback_procedure => 'spike_tool_policy_status' ) ),
-        p_max_tool_roundtrips => 3 );
-
-    sys.dbms_output.put_line( 'Answer: ' || l_answer );
-    apex_session.delete_session;
-exception
-    when others then
-        -- WHY: always close the session we opened, then show the error.
-        apex_session.delete_session;
-        raise;
 end;
 /

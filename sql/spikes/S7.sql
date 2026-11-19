@@ -7,7 +7,7 @@
 --
 -- This file has 2 steps. STEP 1 makes a small table that both tests use.
 -- The clicks for the Interactive Report and the AI Agent are in
--- docs/spikes.md, section S7. Run STEP 2 after those clicks.
+-- docs/spikes.md, section S7.
 --
 -- Docs checked (19 Nov 2026):
 --   Adding Natural Language Support to Interactive Reports,
@@ -18,8 +18,8 @@
 --   Execution Point On Demand).
 --   APEX_AI.GENERATE Signature 1 (p_agent_static_id, p_prompt),
 --   APEX 26.1 API Reference.
--- UNVERIFIED: that an agent's On Demand tool runs when called from
---   SQL Workshop through apex_session. That is what STEP 2 tests.
+-- UNVERIFIED: the exact labels of the Show AI Assistant dynamic action
+--   in 26.2 (docs/spikes.md S7b).
 -- =====================================================================
 
 
@@ -49,37 +49,9 @@ commit;
 
 
 -- ---------------------------------------------------------------------
--- STEP 2: run the AI Agent from SQL (after the clicks in docs/spikes.md).
--- HOW TO RUN: SQL Workshop > SQL Commands. Replace the App ID and
---   username. Paste STEP 2 only. Run.
--- Expected DBMS Output, roughly:
---   Answer: One policy: LSM-20015, Nuwan Bandara, due 20 December 2026.
---   (LSM-20007 is due in March 2027 and LSM-20022 is CANCELLED, so both
---   must be left out.)
--- PASS: the answer names LSM-20015 and Nuwan Bandara, and nothing else.
--- FAIL: an error, or a reply that says it has no data.
+-- STEP 2 is now clicks, not SQL: the agent runs inside the app.
+-- WHY: the agent is a Shared Component of one app, so it needs the app's
+--   session. Opening that session from SQL Workshop with
+--   apex_session.create_session signs you out of APEX (seen in S4,
+--   20 Nov 2026). See docs/spikes.md, section S7b.
 -- ---------------------------------------------------------------------
-declare
-    c_app_id constant number        := 100;                  -- your "Noob Dev Spikes" App ID
-    c_user   constant varchar2(255) := 'YOUR_APEX_USERNAME'; -- your login, in capitals
-    l_answer clob;
-begin
-    -- WHY a session: the agent is a Shared Component of one app, so APEX
-    -- must know which app we are in.
-    apex_session.create_session (
-        p_app_id   => c_app_id,
-        p_page_id  => 1,
-        p_username => c_user );
-
-    l_answer := apex_ai.generate (
-        p_agent_static_id => 'spike_agent',
-        p_prompt          => 'Which ACTIVE motor policies have a premium due before 31 January 2027? Give policy number, holder and due date.' );
-
-    sys.dbms_output.put_line( 'Answer: ' || l_answer );
-    apex_session.delete_session;
-exception
-    when others then
-        apex_session.delete_session;
-        raise;
-end;
-/
