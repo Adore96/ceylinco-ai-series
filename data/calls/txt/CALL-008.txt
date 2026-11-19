@@ -1,0 +1,5 @@
+AGENT: Lanka Shield, Dinesh speaking. Good afternoon.
+CALLER: Afternoon. If I stop my life policy now, how much will I get back?
+AGENT: You are asking about the surrender value. Can I have the policy number?
+CALLER: LSL-10063. I have been paying for about seven years.
+AGENT: Thank you. Let me check the policy details.

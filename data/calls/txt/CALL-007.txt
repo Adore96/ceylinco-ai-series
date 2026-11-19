@@ -1,0 +1,6 @@
+AGENT: Good morning, Lanka Shield, Fathima here.
+CALLER: Hi, I didn't make any claim last year. Will I get the no claim bonus on renewal?
+AGENT: Can I have your motor policy number?
+CALLER: LSM-20015. Car is SP KX-7788.
+AGENT: Thank you. Let me check the policy and the claim history.
+CALLER: Also how much percentage is the NCB now?

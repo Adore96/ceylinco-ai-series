@@ -1,0 +1,5 @@
+AGENT: Lanka Shield Assurance, Nadeesha speaking.
+CALLER: Hi, I want to know what happened to my claim. Number is CLM-26-0004.
+AGENT: Thank you, Mr. Kumara. Let me check the status.
+CALLER: The garage is asking when they can start the work.
+AGENT: One moment please.

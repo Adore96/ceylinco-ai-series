@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Ruwan here.
+CALLER: What are the ways I can pay my premium? I don't use online banking.
+AGENT: There are a few options. Let me go through them.
+CALLER: Can I pay at a post office or a supermarket?

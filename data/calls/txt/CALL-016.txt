@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Dinesh speaking.
+CALLER: Hi, I submitted a claim on Monday. CLM-26-0010. How long does the assessment take normally?
+AGENT: Let me check where it is now.
+CALLER: Will the assessor call me first or come directly?

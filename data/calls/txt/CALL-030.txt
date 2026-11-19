@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Ruwan here.
+CALLER: Hi, I saw an advertisement for an insurance advisor job. Who should I contact?
+AGENT: You can apply through our careers page, sir.
+CALLER: Okay, is there an email?

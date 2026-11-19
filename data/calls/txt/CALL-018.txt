@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Ruwan here.
+CALLER: Hi, I just moved to Galle. Where is your nearest branch?
+AGENT: Let me check. Which area in Galle?
+CALLER: Near Karapitiya.

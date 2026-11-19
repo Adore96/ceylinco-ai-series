@@ -1,0 +1,5 @@
+AGENT: Lanka Shield, Fathima speaking.
+CALLER: Hello, hello, I just had an accident on the Southern Expressway near Kurundugahahetekma. A lorry hit the back of my car.
+AGENT: Are you and the passengers safe? Is anyone injured?
+CALLER: We are okay, my wife has a small cut. The car is badly damaged. What should I do?
+AGENT: I'm transferring you to our accident team right now. Please stay on the line.

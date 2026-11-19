@@ -1,0 +1,6 @@
+AGENT: Lanka Shield, Ruwan speaking.
+CALLER: Hi, I paid my premium online on the 10th but the app still shows it as due.
+AGENT: Let me check that for you. Policy number please?
+CALLER: LSL-10052. I have the bank SMS also.
+AGENT: Thank you. Sometimes online payments take two working days to update.
+CALLER: Okay, can you just confirm it is received? I don't want the policy to lapse.

@@ -1,0 +1,4 @@
+AGENT: Good morning, Lanka Shield, Fathima speaking.
+CALLER: Hi, I want to start something for my daughter's education. She is 3 years old. Do you have a plan like that?
+AGENT: Yes, we do. Let me tell you about it.
+CALLER: How much per month, roughly? And when does it pay out?

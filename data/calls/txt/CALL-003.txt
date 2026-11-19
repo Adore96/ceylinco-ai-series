@@ -1,0 +1,6 @@
+AGENT: Good morning, Lanka Shield Assurance, Fathima speaking.
+CALLER: Hi, my vehicle insurance is expiring soon no? I want to check the renewal date.
+AGENT: Sure. What is the vehicle number or policy number?
+CALLER: Vehicle number WP CAB-4521. Policy number I don't remember, sorry.
+AGENT: No problem, I can find it with the vehicle number.
+CALLER: And will the renewal premium be same as last year?

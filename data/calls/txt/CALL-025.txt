@@ -1,0 +1,5 @@
+AGENT: Lanka Shield Assurance, Nadeesha speaking.
+CALLER: I want to make a complaint. The garage you approved charged me extra for parts that were never replaced.
+AGENT: I'm sorry about this. Can I have the claim number?
+CALLER: CLM-26-0003. I have photos. I want someone to look into this properly.
+AGENT: I'll transfer you to our complaints team.

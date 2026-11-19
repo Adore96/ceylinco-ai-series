@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Ruwan here. Good morning.
+CALLER: Morning. My claim CLM-26-0007 was approved. When will the money come to my account?
+AGENT: Let me check the payment status.
+CALLER: It's been about one week since approval.

@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Dinesh speaking.
+CALLER: Hello, is this the bank? I want to check my loan balance.
+AGENT: No sir, this is Lanka Shield Assurance, an insurance company.
+CALLER: Oh sorry, wrong number.

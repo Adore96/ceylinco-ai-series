@@ -1,0 +1,6 @@
+AGENT: Good afternoon, Lanka Shield, Nadeesha speaking.
+CALLER: Good afternoon. I want to know how much my life cover is. The sum assured.
+AGENT: Certainly. Can I have your policy number or NIC?
+CALLER: NIC is 199012345678. I have two policies I think.
+AGENT: Thank you, I'll check both.
+CALLER: Yes please, my son is asking and I don't have the papers with me.

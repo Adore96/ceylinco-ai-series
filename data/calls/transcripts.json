@@ -1,0 +1,422 @@
+[
+  {
+    "call_id": "CALL-001",
+    "call_time": "2026-11-03T09:00:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Mr. Sunil Jayawardena",
+    "transcript": "AGENT: Good morning, Lanka Shield Assurance, Nadeesha speaking. How can I help you?\nCALLER: Good morning. I want to know when my next premium is due. Policy number is LSL-10021.\nAGENT: Thank you, Mr. Jayawardena. Can I have your NIC number to confirm, please?\nCALLER: Yes, 671234567V.\nAGENT: Thank you. One moment please.\nCALLER: Also tell me the amount, I think it went up this year?\nAGENT: Let me check that for you.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSL-10021",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-002",
+    "call_time": "2026-11-04T09:37:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mrs. Chamari Fernando",
+    "transcript": "AGENT: Lanka Shield, Ruwan here. Good afternoon.\nCALLER: Hello, my life policy has lapsed I think. I missed some payments during the last few months.\nAGENT: I'm sorry to hear that, madam. Do you have the policy number?\nCALLER: LSL-10034. Can I revive it? What do I have to do?\nAGENT: Revival is usually possible. Let me check the status and the arrears.\nCALLER: Do I need a medical again? I am 52 now.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSL-10034",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-003",
+    "call_time": "2026-11-05T10:14:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mr. Kasun Ranasinghe",
+    "transcript": "AGENT: Good morning, Lanka Shield Assurance, Fathima speaking.\nCALLER: Hi, my vehicle insurance is expiring soon no? I want to check the renewal date.\nAGENT: Sure. What is the vehicle number or policy number?\nCALLER: Vehicle number WP CAB-4521. Policy number I don't remember, sorry.\nAGENT: No problem, I can find it with the vehicle number.\nCALLER: And will the renewal premium be same as last year?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSM-20007",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-004",
+    "call_time": "2026-11-06T10:51:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Ms. Tharushi Wickramasinghe",
+    "transcript": "AGENT: Lanka Shield, this is Dinesh. How may I help?\nCALLER: Hi, I got married last month and I want to change the nominee on my life policy to my husband.\nAGENT: Congratulations! Can I have the policy number?\nCALLER: LSL-10045. Can I do it over the phone or do I have to come to the branch?\nAGENT: Let me check what is needed for a nominee change on this policy.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSL-10045",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-005",
+    "call_time": "2026-11-07T11:28:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Mr. Priyantha Silva",
+    "transcript": "AGENT: Good afternoon, Lanka Shield, Nadeesha speaking.\nCALLER: Good afternoon. I want to know how much my life cover is. The sum assured.\nAGENT: Certainly. Can I have your policy number or NIC?\nCALLER: NIC is 199012345678. I have two policies I think.\nAGENT: Thank you, I'll check both.\nCALLER: Yes please, my son is asking and I don't have the papers with me.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "199012345678",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-006",
+    "call_time": "2026-11-03T12:05:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mrs. Dilrukshi Perera",
+    "transcript": "AGENT: Lanka Shield, Ruwan speaking.\nCALLER: Hi, I paid my premium online on the 10th but the app still shows it as due.\nAGENT: Let me check that for you. Policy number please?\nCALLER: LSL-10052. I have the bank SMS also.\nAGENT: Thank you. Sometimes online payments take two working days to update.\nCALLER: Okay, can you just confirm it is received? I don't want the policy to lapse.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSL-10052",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-007",
+    "call_time": "2026-11-04T12:42:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mr. Nuwan Bandara",
+    "transcript": "AGENT: Good morning, Lanka Shield, Fathima here.\nCALLER: Hi, I didn't make any claim last year. Will I get the no claim bonus on renewal?\nAGENT: Can I have your motor policy number?\nCALLER: LSM-20015. Car is SP KX-7788.\nAGENT: Thank you. Let me check the policy and the claim history.\nCALLER: Also how much percentage is the NCB now?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSM-20015",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-008",
+    "call_time": "2026-11-05T13:19:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Mr. Lalith Gunasekara",
+    "transcript": "AGENT: Lanka Shield, Dinesh speaking. Good afternoon.\nCALLER: Afternoon. If I stop my life policy now, how much will I get back?\nAGENT: You are asking about the surrender value. Can I have the policy number?\nCALLER: LSL-10063. I have been paying for about seven years.\nAGENT: Thank you. Let me check the policy details.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSL-10063",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-009",
+    "call_time": "2026-11-06T13:56:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Mr. Ajith Kumara",
+    "transcript": "AGENT: Lanka Shield Assurance, Nadeesha speaking.\nCALLER: Hi, I want to know what happened to my claim. Number is CLM-26-0004.\nAGENT: Thank you, Mr. Kumara. Let me check the status.\nCALLER: The garage is asking when they can start the work.\nAGENT: One moment please.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "CLM-26-0004",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-010",
+    "call_time": "2026-11-07T14:33:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mrs. Nirmala Herath",
+    "transcript": "AGENT: Lanka Shield, Ruwan here.\nCALLER: Hello, my husband was in hospital for four days. We have the hospital cover on his life policy. What documents do I need to claim?\nAGENT: I hope he is feeling better now. Can I have the policy number?\nCALLER: LSL-10072. We have the bill and the discharge summary.\nAGENT: Thank you. Let me check the hospitalisation benefit on this policy.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "LSL-10072",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-011",
+    "call_time": "2026-11-03T15:10:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mr. Kasun Ranasinghe",
+    "transcript": "AGENT: Good afternoon, Lanka Shield, Fathima speaking.\nCALLER: Hi, the garage sent my repair estimate to you last week. Vehicle WP CAB-4521. Is the claim approved?\nAGENT: Let me find the claim with the vehicle number.\nCALLER: The garage is Dulanjana Auto Works in Maharagama.\nAGENT: Thank you, one moment.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "WP CAB-4521",
+      "note": "Refers to the claim created from the Week 2 estimate (CLM-26-0011)"
+    }
+  },
+  {
+    "call_id": "CALL-012",
+    "call_time": "2026-11-04T15:47:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Mr. Nuwan Bandara",
+    "transcript": "AGENT: Lanka Shield, Dinesh here.\nCALLER: Hi, I am calling about my car claim. SP KX-7788. The estimate went from Galle Motor Engineers.\nAGENT: Sure. Let me check.\nCALLER: They said the insurance has to approve before they order the parts.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "SP KX-7788",
+      "note": "Refers to the claim created from the Week 2 estimate (CLM-26-0012)"
+    }
+  },
+  {
+    "call_id": "CALL-013",
+    "call_time": "2026-11-05T16:24:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Ms. Sanduni Rathnayake",
+    "transcript": "AGENT: Lanka Shield, Nadeesha speaking. How can I help you?\nCALLER: Hi, my claim for vehicle CP PH-3310 is taking long. The garage in Kandy sent the estimate.\nAGENT: Let me check the status for you.\nCALLER: They said something about the total not matching. Is there a problem?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "CP PH-3310",
+      "note": "Refers to the estimate that needed human review in Week 2 (CLM-26-0013)"
+    }
+  },
+  {
+    "call_id": "CALL-014",
+    "call_time": "2026-11-06T09:01:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mr. Rohan de Silva",
+    "transcript": "AGENT: Lanka Shield, Ruwan here. Good morning.\nCALLER: Morning. My claim CLM-26-0007 was approved. When will the money come to my account?\nAGENT: Let me check the payment status.\nCALLER: It's been about one week since approval.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "CLM-26-0007",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-015",
+    "call_time": "2026-11-07T09:38:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mrs. Anoma Jayasinghe",
+    "transcript": "AGENT: Good afternoon, Lanka Shield, Fathima speaking.\nCALLER: Hello, I got a letter saying my claim was rejected. CLM-26-0009. Can you tell me why?\nAGENT: Let me look at the claim details.\nCALLER: I just want to understand the reason, then I can decide what to do.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "CLM-26-0009",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-016",
+    "call_time": "2026-11-03T10:15:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Mr. Chathura Senanayake",
+    "transcript": "AGENT: Lanka Shield, Dinesh speaking.\nCALLER: Hi, I submitted a claim on Monday. CLM-26-0010. How long does the assessment take normally?\nAGENT: Let me check where it is now.\nCALLER: Will the assessor call me first or come directly?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "CLAIM",
+      "complaint_flag": "N",
+      "reference": "CLM-26-0010",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-017",
+    "call_time": "2026-11-04T10:52:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Caller (not a customer)",
+    "transcript": "AGENT: Lanka Shield Assurance, Nadeesha speaking.\nCALLER: Hi, is your Kandy branch open on Saturday?\nAGENT: Let me check the branch hours for you.\nCALLER: I want to come and pay in cash, what time does it close?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "PRODUCT_BRANCH",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-018",
+    "call_time": "2026-11-05T11:29:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mr. Hasitha Abeysekara",
+    "transcript": "AGENT: Lanka Shield, Ruwan here.\nCALLER: Hi, I just moved to Galle. Where is your nearest branch?\nAGENT: Let me check. Which area in Galle?\nCALLER: Near Karapitiya.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "PRODUCT_BRANCH",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-019",
+    "call_time": "2026-11-06T12:06:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mrs. Ishani Rodrigo",
+    "transcript": "AGENT: Good morning, Lanka Shield, Fathima speaking.\nCALLER: Hi, I want to start something for my daughter's education. She is 3 years old. Do you have a plan like that?\nAGENT: Yes, we do. Let me tell you about it.\nCALLER: How much per month, roughly? And when does it pay out?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "PRODUCT_BRANCH",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-020",
+    "call_time": "2026-11-07T12:43:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Mr. Gayan Liyanage",
+    "transcript": "AGENT: Lanka Shield, Dinesh speaking.\nCALLER: I'm buying a used car. What is the difference between third party and full insurance?\nAGENT: Good question. Let me explain the two covers.\nCALLER: Is full cover worth it for a 2015 car?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "PRODUCT_BRANCH",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-021",
+    "call_time": "2026-11-03T13:20:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Mr. Sameera Wijesinghe",
+    "transcript": "AGENT: Lanka Shield, Nadeesha speaking.\nCALLER: Hi, do you cover hybrid cars? Specifically the battery. It is very expensive to replace.\nAGENT: Let me check our motor cover for hybrid vehicles.\nCALLER: I have a Vezel, 2017 model.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "PRODUCT_BRANCH",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-022",
+    "call_time": "2026-11-04T13:57:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mrs. Kumudini Samarakoon",
+    "transcript": "AGENT: Lanka Shield, Ruwan here.\nCALLER: What are the ways I can pay my premium? I don't use online banking.\nAGENT: There are a few options. Let me go through them.\nCALLER: Can I pay at a post office or a supermarket?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "PRODUCT_BRANCH",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-023",
+    "call_time": "2026-11-05T14:34:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mr. Dhammika Pathirana",
+    "transcript": "AGENT: Lanka Shield, Fathima speaking.\nCALLER: Hello, hello, I just had an accident on the Southern Expressway near Kurundugahahetekma. A lorry hit the back of my car.\nAGENT: Are you and the passengers safe? Is anyone injured?\nCALLER: We are okay, my wife has a small cut. The car is badly damaged. What should I do?\nAGENT: I'm transferring you to our accident team right now. Please stay on the line.",
+    "expected": {
+      "triage_route": "SPECIALIST",
+      "intent": "CLAIM",
+      "complaint_flag": "Y",
+      "reference": "LSM-20022",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-024",
+    "call_time": "2026-11-06T15:11:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Mrs. Rasika Mendis",
+    "transcript": "AGENT: Lanka Shield, Dinesh speaking.\nCALLER: This is the third time I'm calling. Your assessor was supposed to come yesterday and nobody came. Nobody even called.\nAGENT: I'm very sorry, madam. Can I have the claim number?\nCALLER: CLM-26-0006. I took leave from work for this. This is not acceptable.\nAGENT: I understand. I'll put you through to a supervisor.",
+    "expected": {
+      "triage_route": "SPECIALIST",
+      "intent": "CLAIM",
+      "complaint_flag": "Y",
+      "reference": "CLM-26-0006",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-025",
+    "call_time": "2026-11-07T15:48:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Mr. Mahesh Karunaratne",
+    "transcript": "AGENT: Lanka Shield Assurance, Nadeesha speaking.\nCALLER: I want to make a complaint. The garage you approved charged me extra for parts that were never replaced.\nAGENT: I'm sorry about this. Can I have the claim number?\nCALLER: CLM-26-0003. I have photos. I want someone to look into this properly.\nAGENT: I'll transfer you to our complaints team.",
+    "expected": {
+      "triage_route": "SPECIALIST",
+      "intent": "CLAIM",
+      "complaint_flag": "Y",
+      "reference": "CLM-26-0003",
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-026",
+    "call_time": "2026-11-03T16:25:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Ms. Nimesha Alwis",
+    "transcript": "AGENT: Lanka Shield, Ruwan here.\nCALLER: Hi, quick question about my motor policy LSM-20030. Does it cover small scratches?\nAGENT: Let me check your cover.\nCALLER: Someone reversed into my car in the Liberty Plaza car park this morning. The bumper is dented and the light is cracked. They drove off.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "Y",
+      "reference": "LSM-20030",
+      "note": "Triage miss: sounds like a cover question but it is an accident. AI flag should catch it."
+    }
+  },
+  {
+    "call_id": "CALL-027",
+    "call_time": "2026-11-04T09:02:00+05:30",
+    "agent_name": "Fathima",
+    "caller": "Mr. Upul Dissanayake",
+    "transcript": "AGENT: Good afternoon, Lanka Shield, Fathima speaking.\nCALLER: Good afternoon. I'm calling about the refund for the extra premium I paid on LSL-10088.\nAGENT: Let me check that.\nCALLER: Honestly I'm a bit disappointed. This is the third time I'm calling and every time they say two weeks. It's been two months now.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "Y",
+      "reference": "LSL-10088",
+      "note": "Triage miss: polite tone, but it is a repeated complaint. AI flag should catch it."
+    }
+  },
+  {
+    "call_id": "CALL-028",
+    "call_time": "2026-11-05T09:39:00+05:30",
+    "agent_name": "Dinesh",
+    "caller": "Unknown caller",
+    "transcript": "AGENT: Lanka Shield, Dinesh speaking.\nCALLER: Hello, is this the bank? I want to check my loan balance.\nAGENT: No sir, this is Lanka Shield Assurance, an insurance company.\nCALLER: Oh sorry, wrong number.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "OTHER",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  },
+  {
+    "call_id": "CALL-029",
+    "call_time": "2026-11-06T10:16:00+05:30",
+    "agent_name": "Nadeesha",
+    "caller": "Mrs. Shirani Gamage",
+    "transcript": "AGENT: Lanka Shield, Nadeesha speaking.\nCALLER: Hi, how much is due on my policy LSL-10091? And can I pay at the Negombo branch?\nAGENT: Let me check both for you.\nCALLER: I'll be in Negombo on Friday.",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "POLICY",
+      "complaint_flag": "N",
+      "reference": "LSL-10091",
+      "note": "Ambiguous: two intents in one call (premium and branch). Main intent POLICY."
+    }
+  },
+  {
+    "call_id": "CALL-030",
+    "call_time": "2026-11-07T10:53:00+05:30",
+    "agent_name": "Ruwan",
+    "caller": "Mr. Isuru Weerasinghe",
+    "transcript": "AGENT: Lanka Shield, Ruwan here.\nCALLER: Hi, I saw an advertisement for an insurance advisor job. Who should I contact?\nAGENT: You can apply through our careers page, sir.\nCALLER: Okay, is there an email?",
+    "expected": {
+      "triage_route": "BOT",
+      "intent": "OTHER",
+      "complaint_flag": "N",
+      "reference": null,
+      "note": null
+    }
+  }
+]

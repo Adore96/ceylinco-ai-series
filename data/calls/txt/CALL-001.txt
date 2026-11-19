@@ -1,0 +1,7 @@
+AGENT: Good morning, Lanka Shield Assurance, Nadeesha speaking. How can I help you?
+CALLER: Good morning. I want to know when my next premium is due. Policy number is LSL-10021.
+AGENT: Thank you, Mr. Jayawardena. Can I have your NIC number to confirm, please?
+CALLER: Yes, 671234567V.
+AGENT: Thank you. One moment please.
+CALLER: Also tell me the amount, I think it went up this year?
+AGENT: Let me check that for you.

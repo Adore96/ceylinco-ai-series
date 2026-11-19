@@ -1,0 +1,6 @@
+AGENT: Lanka Shield, Ruwan here. Good afternoon.
+CALLER: Hello, my life policy has lapsed I think. I missed some payments during the last few months.
+AGENT: I'm sorry to hear that, madam. Do you have the policy number?
+CALLER: LSL-10034. Can I revive it? What do I have to do?
+AGENT: Revival is usually possible. Let me check the status and the arrears.
+CALLER: Do I need a medical again? I am 52 now.

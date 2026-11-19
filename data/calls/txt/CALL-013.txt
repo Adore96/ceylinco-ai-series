@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Nadeesha speaking. How can I help you?
+CALLER: Hi, my claim for vehicle CP PH-3310 is taking long. The garage in Kandy sent the estimate.
+AGENT: Let me check the status for you.
+CALLER: They said something about the total not matching. Is there a problem?

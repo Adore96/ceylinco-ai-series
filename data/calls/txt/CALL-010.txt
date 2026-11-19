@@ -1,0 +1,5 @@
+AGENT: Lanka Shield, Ruwan here.
+CALLER: Hello, my husband was in hospital for four days. We have the hospital cover on his life policy. What documents do I need to claim?
+AGENT: I hope he is feeling better now. Can I have the policy number?
+CALLER: LSL-10072. We have the bill and the discharge summary.
+AGENT: Thank you. Let me check the hospitalisation benefit on this policy.

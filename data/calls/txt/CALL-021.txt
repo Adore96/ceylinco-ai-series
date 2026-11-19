@@ -1,0 +1,4 @@
+AGENT: Lanka Shield, Nadeesha speaking.
+CALLER: Hi, do you cover hybrid cars? Specifically the battery. It is very expensive to replace.
+AGENT: Let me check our motor cover for hybrid vehicles.
+CALLER: I have a Vezel, 2017 model.

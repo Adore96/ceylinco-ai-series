@@ -1,0 +1,5 @@
+AGENT: Good afternoon, Lanka Shield, Fathima speaking.
+CALLER: Hi, the garage sent my repair estimate to you last week. Vehicle WP CAB-4521. Is the claim approved?
+AGENT: Let me find the claim with the vehicle number.
+CALLER: The garage is Dulanjana Auto Works in Maharagama.
+AGENT: Thank you, one moment.
