@@ -11,6 +11,7 @@ Environment (verified 17 Nov 2026 on the free workspace at oracleapex.com)
 - Present in Shared Components: AI Attributes, AI Agents, AI Services, Task Definitions, Workflows
 - Create App Using Generative AI is available
 - Vector Provider types: Database ONNX Model, Generative AI Service, Custom PL/SQL
+- Vector Provider "gemini_embed" (Google Gemini, gemini-embedding-001, 3072 dimensions) is configured (S6, 21 Nov)
 - No direct database connection from outside (no SQLcl); all SQL runs in SQL Workshop
 - Not yet verified: natural-language interactive reports; full AI agent run
 
@@ -46,3 +47,10 @@ Results recorded here as S1 to S7 are run.
 - The create wizard can finish with no participants: add Potential Owner and Business Administrator explicitly.
 - Task APIs do not work from SQL Workshop: `APEX_HUMAN_TASK.CREATE_TASK` raises ORA-20987 "Task definition not found".
 - Never call `apex_session.create_session` / `delete_session` in SQL Workshop: it replaces the builder session and signs you out. Test anything that needs an app session from an app page.
+
+### S6: Gemini Vector Provider embeds a sentence: PASS (21 Nov)
+- Click path in 26.2: App Builder > Workspace Utilities > Vector Providers > Create. Provider Type **Generative AI Service**, AI Provider **Google Gemini**.
+- The 26.2 form fills in Base URL `https://generativelanguage.googleapis.com/v1` and AI Model `gemini-embedding-001` by default. The AI Model field is under **Advanced**.
+- Credential "Create New" with the API key creates the Web Credential inline. Test Connection passed.
+- `sql/spikes/S6.sql` in SQL Commands: one row, DIMENSIONS 3072, first values `[2.45889695E-003,2.05405001E-002,...`; 0.72 s.
+- Decision: Week 3 RAG embeds live through `APEX_AI.GET_VECTOR_EMBEDDINGS` with `gemini_embed`. The "embeddings computed outside" fallback is not needed. Model `gemini-embedding-001`, 3072 dimensions; the schema keeps `VECTOR(*, FLOAT32)`.
