@@ -2,7 +2,7 @@
 
 Deck: `presentation/week1/week1-deck.pptx` (PowerPoint, rebuilt on 21 Nov from the Claude Slides artifact, same look, fully editable).
 Source artifact (older version, not updated): https://claude.ai/artifact/1G8wqUz8YUFn93rP7fPwoz
-Session: Wednesday 25 November 2026, 210 minutes. 53 slides. Full speaker notes (what to say, timing checkpoint, transition, likely questions) are in each slide's notes.
+Session: Wednesday 25 November 2026, 210 minutes. 55 slides. Full speaker notes (what to say, timing checkpoint, transition, likely questions) are in each slide's notes.
 
 Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 2 (v2) with the v3 changes in files/ceylinco-build-scripts-v3.md, docs/environment.md, docs/apex-faq.md, docs/week1-component-map.md, docs/spikes.md, sql/week1/, data/calls/. All data synthetic (Lanka Shield Assurance). The client's workflow images in images/ were not opened or used; both case flows are redrawn from week1-component-map.md.
 
@@ -70,37 +70,39 @@ Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 
 29. A page is a stack of regions (`c2-normal`): 5 min. Checkpoint 1:35 -> 1:40.
 30. AI chat on a page, and reports that understand words (`c2-ai`): 5 min. Checkpoint 1:40 -> 1:45.
 31. Business logic runs on submit (`c3-normal`): 4 min. Checkpoint 1:45 -> 1:49.
-32. One AI call from SQL (`c3-ai`): 5 min. Checkpoint 1:49 -> 1:54.
-33. Three calls. Which label for each? (`c3-demo`): 9 min. Checkpoint 1:54 -> 2:03.
-34. Configure the connection once (`c4-normal`): 4 min. Checkpoint 2:03 -> 2:07.
-35. Connect an AI model (`c4-ai`): 7 min (live). Checkpoint 2:07 -> 2:14.
-36. Turning text into embeddings (`c5-normal`): 4 min. Checkpoint 2:14 -> 2:18.
-37. The basis of AI search over documents (`c5-ai`): 5 min. Checkpoint 2:18 -> 2:23.
-38. Reusable logic, and tools you approve (`c6-normal`): 4 min. Checkpoint 2:23 -> 2:27.
-39. An assistant that calls approved tools (`c6-ai`): 5 min. Checkpoint 2:27 -> 2:32.
-40. Approvals and human tasks (`c7-normal`): 4 min. Checkpoint 2:32 -> 2:36.
-41. A person approves what the AI proposes (`c7-ai`): 5 min. Checkpoint 2:36 -> 2:41.
-42. Seven components, normal first (`c-recap`): 4 min. Checkpoint 2:41 -> 2:45.
+32. One AI call from SQL (`c3-ai`): 4.5 min. Checkpoint 1:49 -> 1:53.5.
+33. Meme: what can happen if you skip the check (`meme-json`): 0.5 min. Checkpoint 1:53.5 -> 1:54.
+34. Three calls. Which label for each? (`c3-demo`): 8 min. Checkpoint 1:54 -> 2:02.
+35. Meme: a true story about the 18-second query (`meme-optimizer`): 1 min. Checkpoint 2:02 -> 2:03.
+36. Configure the connection once (`c4-normal`): 4 min. Checkpoint 2:03 -> 2:07.
+37. Connect an AI model (`c4-ai`): 7 min (live). Checkpoint 2:07 -> 2:14.
+38. Turning text into embeddings (`c5-normal`): 4 min. Checkpoint 2:14 -> 2:18.
+39. The basis of AI search over documents (`c5-ai`): 5 min. Checkpoint 2:18 -> 2:23.
+40. Reusable logic, and tools you approve (`c6-normal`): 4 min. Checkpoint 2:23 -> 2:27.
+41. An assistant that calls approved tools (`c6-ai`): 5 min. Checkpoint 2:27 -> 2:32.
+42. Approvals and human tasks (`c7-normal`): 4 min. Checkpoint 2:32 -> 2:36.
+43. A person approves what the AI proposes (`c7-ai`): 5 min. Checkpoint 2:36 -> 2:41.
+44. Seven components, normal first (`c-recap`): 4 min. Checkpoint 2:41 -> 2:45.
 
 ### Break
 
-43. Back at T + 10 (`break2`): 10 min break. Checkpoint 2:45 -> 2:55.
+45. Back at T + 10 (`break2`): 10 min break. Checkpoint 2:45 -> 2:55.
 
 ### Block 5 · The two cases, mapped to APEX
 
-44. The two cases, mapped to APEX (`d-cases`): 0.5 min. Checkpoint 2:55. Block 5 runs to 3:20.
-45. One app, one data model, two cases (`one-app`): 2.5 min. Checkpoint 2:55.5 -> 2:58.
-46. From an estimate photo to a claim (`case1-flow`): 6 min. Checkpoint 2:58 -> 3:04.
-47. Trust the checks, not the model’s opinion of itself (`case1-trust`): 3 min. Checkpoint 3:04 -> 3:07.
-48. From a call to a reply (`case2-flow`): 6 min. Checkpoint 3:07 -> 3:13.
-49. Three kinds of question, three ways to answer (`case2-answers`): 3 min. Checkpoint 3:13 -> 3:16.
-50. On stage vs in production (`stage-vs-prod`): 2 min. Checkpoint 3:16 -> 3:18.
-51. The next two Wednesdays (`next-weeks`): 2 min. Checkpoint 3:18 -> 3:20.
+46. The two cases, mapped to APEX (`d-cases`): 0.5 min. Checkpoint 2:55. Block 5 runs to 3:20.
+47. One app, one data model, two cases (`one-app`): 2.5 min. Checkpoint 2:55.5 -> 2:58.
+48. From an estimate photo to a claim (`case1-flow`): 6 min. Checkpoint 2:58 -> 3:04.
+49. Trust the checks, not the model’s opinion of itself (`case1-trust`): 3 min. Checkpoint 3:04 -> 3:07.
+50. From a call to a reply (`case2-flow`): 6 min. Checkpoint 3:07 -> 3:13.
+51. Three kinds of question, three ways to answer (`case2-answers`): 3 min. Checkpoint 3:13 -> 3:16.
+52. On stage vs in production (`stage-vs-prod`): 2 min. Checkpoint 3:16 -> 3:18.
+53. The next two Wednesdays (`next-weeks`): 2 min. Checkpoint 3:18 -> 3:20.
 
 ### Block 6 · Q&A
 
-52. Questions (`qa`): 9 min. Checkpoint 3:20 -> 3:29.
-53. Thank you (`closing`): 1 min. Checkpoint 3:29 -> 3:30. END at 3:30 (210 min).
+54. Questions (`qa`): 9 min. Checkpoint 3:20 -> 3:29.
+55. Thank you (`closing`): 1 min. Checkpoint 3:29 -> 3:30. END at 3:30 (210 min).
 
 ## Demo cues
 
@@ -112,9 +114,9 @@ Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 
 | 0:52.5 | 22 Predict + demo 2 | Predict chunk count; paste `sql/week1/02_chunking.sql`, Run; change `"max": "40"` to `"20"`, Run again | 3 or 4 rows ending at full stops; then more, smaller chunks | Explain from slide 21 |
 | 1:25 | 28 Create App Using Generative AI | App Builder > Create > Create App Using Generative AI; suggested prompt in slide notes | A proposed claims-desk app (output varies) | Plain Create App wizard |
 | 1:40 | 30 Natural-language report | Spike app, page Policies; search bar: "Show only ACTIVE MOTOR policies and highlight rows where premium is more than 60000" | Filters Status = ACTIVE and Policy Type = MOTOR, highlight Premium > 60000; LSM-20007 (highlighted) and LSM-20015 | Describe from slide |
-| 1:54 | 33 Classify three calls | SQL Commands: paste `sql/week1/03_classify_calls.sql`, Run | 3 rows, MATCH = Y: POLICY, CLAIM, PRODUCT_BRANCH; about 3.5 s in total | Read the expected labels |
-| 2:07 | 35 Connect an AI model | Open Generative AI Service `claude`; show provider, model, credential; then the app's AI Attributes | Fields visible; key never shown | Describe from slide |
-| 2:27 | 39 AI agent | Spike app, page Policies, Ask agent: "Which ACTIVE motor policies have a premium due before 31 January 2027?" | Only LSM-20015, Nuwan Bandara, 20 December 2026 | Route by intent in PL/SQL, explained |
+| 1:54 | 34 Classify three calls | SQL Commands: paste `sql/week1/03_classify_calls.sql`, Run | 3 rows, MATCH = Y: POLICY, CLAIM, PRODUCT_BRANCH; about 3.5 s in total | Read the expected labels |
+| 2:07 | 37 Connect an AI model | Open Generative AI Service `claude`; show provider, model, credential; then the app's AI Attributes | Fields visible; key never shown | Describe from slide |
+| 2:27 | 41 AI agent | Spike app, page Policies, Ask agent: "Which ACTIVE motor policies have a premium due before 31 January 2027?" | Only LSM-20015, Nuwan Bandara, 20 December 2026 | Route by intent in PL/SQL, explained |
 
 Before the session: sign in to the spike app once (running it opens its own login page).
 
@@ -126,7 +128,8 @@ Not demoed (explained only): Select AI (no DBMS_CLOUD_AI on the free workspace).
 2. **Rehearsal checks (24 Nov):** exact chunk row counts for max 40 and max 20; Create App Using Generative AI screens; 26.2 menu labels for the workspace tour and the Generative AI Service page.
 3. **Oracle doc links on the closing slide** were not opened from this session. Click each; switch the APEX_AI.GENERATE link from 26.1 to 26.2 if a 26.2 page exists; add the AI Vector Search User's Guide URL.
 4. **Fonts:** the .pptx uses Syne (headings) and DM Sans (body), installed on this PC from Google Fonts, and Consolas for code (JetBrains Mono joined `=>` into an arrow in PowerPoint). Install Syne and DM Sans on any other presenting laptop, or export to PDF on this PC beforehand.
-5. **Closed on 21 Nov:** the 18 Nov recap slide was dropped (its 3 min went to the n8n slide); `sql/week1/03_classify_calls.sql` exists and is tested; S1 is recorded as PASS; the deck is now a .pptx in `presentation/week1/`.
+5. **Engagement (22 Nov):** two meme slides around the classify demo (slides 33 and 35), our own text in the deck style, no copied images. A third meme (Case 1 checks) waits for Week 2 so it can show real tested numbers. Break-the-AI challenge planned for Weeks 2 and 3.
+6. **Closed on 21 Nov:** the 18 Nov recap slide was dropped (its 3 min went to the n8n slide); `sql/week1/03_classify_calls.sql` exists and is tested; S1 is recorded as PASS; the deck is now a .pptx in `presentation/week1/`.
 
 ## UNVERIFIED points (in speaker notes, not on slides as facts)
 
