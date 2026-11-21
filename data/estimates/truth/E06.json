@@ -1,0 +1,51 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Kurunegala Motor Works",
+  "garage_town": "Kurunegala",
+  "estimate_no": "KMW 2026/702",
+  "estimate_date": "2026-10-24",
+  "reg_no": "NW CBP-9081",
+  "vehicle": "Toyota Land Cruiser Prado",
+  "line_items": [
+    {
+      "description": "Front bumper (genuine)",
+      "qty": 1,
+      "unit_price_lkr": 135000,
+      "amount_lkr": 135000
+    },
+    {
+      "description": "Fog lamp, left",
+      "qty": 1,
+      "unit_price_lkr": 28500,
+      "amount_lkr": 28500
+    },
+    {
+      "description": "Bull bar bracket",
+      "qty": 2,
+      "unit_price_lkr": 9800,
+      "amount_lkr": 19600
+    },
+    {
+      "description": "Painting, front bumper",
+      "qty": 1,
+      "unit_price_lkr": 38000,
+      "amount_lkr": 38000
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 22500,
+      "amount_lkr": 22500
+    }
+  ],
+  "total_lkr": 243600,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": true
+    },
+    "review_status": "AUTO_OK",
+    "claim_no": null
+  }
+}

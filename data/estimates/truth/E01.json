@@ -1,0 +1,57 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Dulanjana Auto Works",
+  "garage_town": "Maharagama",
+  "estimate_no": "DAW/26/0412",
+  "estimate_date": "2026-10-27",
+  "reg_no": "WP CAB-4521",
+  "vehicle": "Toyota Aqua",
+  "line_items": [
+    {
+      "description": "Rear bumper (genuine)",
+      "qty": 1,
+      "unit_price_lkr": 48500,
+      "amount_lkr": 48500
+    },
+    {
+      "description": "Rear bumper brackets",
+      "qty": 2,
+      "unit_price_lkr": 3200,
+      "amount_lkr": 6400
+    },
+    {
+      "description": "Tail lamp assembly, left",
+      "qty": 1,
+      "unit_price_lkr": 21800,
+      "amount_lkr": 21800
+    },
+    {
+      "description": "Panel beating, boot lid",
+      "qty": 1,
+      "unit_price_lkr": 18000,
+      "amount_lkr": 18000
+    },
+    {
+      "description": "Painting, rear bumper and boot lid",
+      "qty": 1,
+      "unit_price_lkr": 32000,
+      "amount_lkr": 32000
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 12500,
+      "amount_lkr": 12500
+    }
+  ],
+  "total_lkr": 139200,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": true
+    },
+    "review_status": "AUTO_OK",
+    "claim_no": "CLM-26-0011"
+  }
+}

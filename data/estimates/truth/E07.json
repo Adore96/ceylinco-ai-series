@@ -1,0 +1,45 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Ambalangoda Auto Repairs",
+  "garage_town": "Ambalangoda",
+  "estimate_no": "AAR-0219",
+  "estimate_date": "2026-10-25",
+  "reg_no": "SP CAD-6640",
+  "vehicle": "Toyota Corolla",
+  "line_items": [
+    {
+      "description": "Bonnet",
+      "qty": 1,
+      "unit_price_lkr": 52000,
+      "amount_lkr": 52000
+    },
+    {
+      "description": "Bonnet hinges",
+      "qty": 2,
+      "unit_price_lkr": 5400,
+      "amount_lkr": 10800
+    },
+    {
+      "description": "Painting, bonnet",
+      "qty": 1,
+      "unit_price_lkr": 22000,
+      "amount_lkr": 22000
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 9500,
+      "amount_lkr": 9500
+    }
+  ],
+  "total_lkr": 94300,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": true
+    },
+    "review_status": "AUTO_OK",
+    "claim_no": null
+  }
+}

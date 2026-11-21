@@ -1,0 +1,45 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Peradeniya Motor Engineers",
+  "garage_town": "Peradeniya",
+  "estimate_no": "PME/442",
+  "estimate_date": "2026-10-30",
+  "reg_no": "CP KQ-5532",
+  "vehicle": "Honda Fit",
+  "line_items": [
+    {
+      "description": "Front bumper cover",
+      "qty": 1,
+      "unit_price_lkr": 41000,
+      "amount_lkr": 41000
+    },
+    {
+      "description": "Headlamp assembly, left",
+      "qty": 1,
+      "unit_price_lkr": 36500,
+      "amount_lkr": 36500
+    },
+    {
+      "description": "Painting, front bumper",
+      "qty": 1,
+      "unit_price_lkr": 22000,
+      "amount_lkr": 22000
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 10500,
+      "amount_lkr": 10500
+    }
+  ],
+  "total_lkr": 110000,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": true
+    },
+    "review_status": "AUTO_OK",
+    "claim_no": null
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Hill Capital Auto Care",
+  "garage_town": "Kandy",
+  "estimate_no": "HCA-0973",
+  "estimate_date": "2026-10-29",
+  "reg_no": "CP PH-3310",
+  "vehicle": "Suzuki Wagon R",
+  "line_items": [
+    {
+      "description": "Left front door shell",
+      "qty": 1,
+      "unit_price_lkr": 46000,
+      "amount_lkr": 46000
+    },
+    {
+      "description": "Side mirror, left",
+      "qty": 1,
+      "unit_price_lkr": 14500,
+      "amount_lkr": 14500
+    },
+    {
+      "description": "Door trim and clips",
+      "qty": 1,
+      "unit_price_lkr": 6500,
+      "amount_lkr": 6500
+    },
+    {
+      "description": "Painting, left front door",
+      "qty": 1,
+      "unit_price_lkr": 24000,
+      "amount_lkr": 24000
+    },
+    {
+      "description": "Wheel alignment",
+      "qty": 1,
+      "unit_price_lkr": 3500,
+      "amount_lkr": 3500
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 24000,
+      "amount_lkr": 24000
+    }
+  ],
+  "total_lkr": 145000,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": false,
+      "active_motor_policy": true
+    },
+    "review_status": "NEEDS_REVIEW",
+    "claim_no": "CLM-26-0013"
+  }
+}

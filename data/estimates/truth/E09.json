@@ -1,0 +1,45 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Colombo City Motors",
+  "garage_town": "Colombo 10",
+  "estimate_no": "CCM-55120",
+  "estimate_date": "2026-10-26",
+  "reg_no": "WP KM-5521",
+  "vehicle": null,
+  "line_items": [
+    {
+      "description": "Side mirror, right",
+      "qty": 1,
+      "unit_price_lkr": 17500,
+      "amount_lkr": 17500
+    },
+    {
+      "description": "Front door, right, panel beating",
+      "qty": 1,
+      "unit_price_lkr": 14000,
+      "amount_lkr": 14000
+    },
+    {
+      "description": "Painting, right front door",
+      "qty": 1,
+      "unit_price_lkr": 21000,
+      "amount_lkr": 21000
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 6500,
+      "amount_lkr": 6500
+    }
+  ],
+  "total_lkr": 59000,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": false
+    },
+    "review_status": "NEEDS_REVIEW",
+    "claim_no": null
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "document_type": "OTHER",
+  "garage_name": "Lanka Filling Station (Kandy Rd)",
+  "garage_town": "Kadawatha",
+  "estimate_no": "INV 884213",
+  "estimate_date": "2026-10-28",
+  "reg_no": null,
+  "vehicle": null,
+  "line_items": [
+    {
+      "description": "Petrol 92 Octane, 32.5 L",
+      "qty": 1,
+      "unit_price_lkr": 9945,
+      "amount_lkr": 9945
+    }
+  ],
+  "total_lkr": 9945,
+  "expected": {
+    "checks": {
+      "required_fields": false,
+      "items_add_up": true,
+      "active_motor_policy": false
+    },
+    "review_status": "NEEDS_REVIEW",
+    "claim_no": null
+  }
+}

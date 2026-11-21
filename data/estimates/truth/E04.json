@@ -1,0 +1,45 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Ruhuna Auto Clinic",
+  "garage_town": "Matara",
+  "estimate_no": "RAC/1544",
+  "estimate_date": "2026-10-21",
+  "reg_no": "SP CBA-2718",
+  "vehicle": "Hyundai Tucson",
+  "line_items": [
+    {
+      "description": "Front windscreen",
+      "qty": 1,
+      "unit_price_lkr": 58000,
+      "amount_lkr": 58000
+    },
+    {
+      "description": "Windscreen moulding",
+      "qty": 1,
+      "unit_price_lkr": 6400,
+      "amount_lkr": 6400
+    },
+    {
+      "description": "Wiper arm, driver side",
+      "qty": 1,
+      "unit_price_lkr": 4800,
+      "amount_lkr": 4800
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 7500,
+      "amount_lkr": 7500
+    }
+  ],
+  "total_lkr": 76700,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": true
+    },
+    "review_status": "AUTO_OK",
+    "claim_no": null
+  }
+}

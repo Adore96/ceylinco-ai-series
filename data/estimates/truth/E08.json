@@ -1,0 +1,45 @@
+{
+  "document_type": "GARAGE_ESTIMATE",
+  "garage_name": "Avissawella Auto Point",
+  "garage_town": "Avissawella",
+  "estimate_no": "AAP/26/091",
+  "estimate_date": "2026-10-26",
+  "reg_no": "WP CAD-1187",
+  "vehicle": "Toyota Yaris",
+  "line_items": [
+    {
+      "description": "Rear bumper",
+      "qty": 1,
+      "unit_price_lkr": 32500,
+      "amount_lkr": 32500
+    },
+    {
+      "description": "Reverse sensor",
+      "qty": 2,
+      "unit_price_lkr": 7800,
+      "amount_lkr": 15600
+    },
+    {
+      "description": "Painting, rear bumper",
+      "qty": 1,
+      "unit_price_lkr": 18000,
+      "amount_lkr": 18000
+    },
+    {
+      "description": "Labour",
+      "qty": 1,
+      "unit_price_lkr": 8500,
+      "amount_lkr": 8500
+    }
+  ],
+  "total_lkr": 74600,
+  "expected": {
+    "checks": {
+      "required_fields": true,
+      "items_add_up": true,
+      "active_motor_policy": false
+    },
+    "review_status": "NEEDS_REVIEW",
+    "claim_no": null
+  }
+}
