@@ -60,7 +60,7 @@ Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 
 
 ### Break
 
-25. Back at 1:20 (`break1`): 15 min break. Checkpoint 1:05 -> 1:20.
+25. Back at T + 15 (`break1`): 15 min break. Checkpoint 1:05 -> 1:20.
 
 ### Block 4 · Components and their AI
 
@@ -84,7 +84,7 @@ Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 
 
 ### Break
 
-43. Back at 2:55 (`break2`): 10 min break. Checkpoint 2:45 -> 2:55.
+43. Back at T + 10 (`break2`): 10 min break. Checkpoint 2:45 -> 2:55.
 
 ### Block 5 · The two cases, mapped to APEX
 
