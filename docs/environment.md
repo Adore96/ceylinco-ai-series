@@ -71,4 +71,9 @@ Results recorded here as S1 to S7 are run.
 
 ## Lessons from building the demos
 
+- Week 2 Create App wizard (22 Nov): App Builder > Create shows a quick Name box first; "Use Create App Wizard" opens the full wizard. Add Page > Interactive Report > Table ESTIMATES > Include Form gives a report (page 2) and a modal form (page 3).
+- The generated form's File Upload item (P3_IMAGE) does not fill MIME_TYPE or FILE_NAME on insert, so the NOT NULL columns raise ORA-01400. Setting "MIME Type Column" and "Filename Column" on the item did not help on insert. For the test we filled P3_FILE_NAME and P3_MIME_TYPE before submit (P3_MIME_TYPE: Value Protected off). For the live build, use the documented pattern instead: File Upload storage "Table APEX_APPLICATION_TEMP_FILES", then a process that does INSERT INTO estimates ... SELECT blob_content, mime_type, filename FROM apex_application_temp_files WHERE name = :P3_IMAGE. UNVERIFIED: that pattern on 26.2 (to rehearse).
+- An APEX form sends an explicit NULL for an empty item, which bypasses a plain column DEFAULT (ORA-01400 on created_on). Fixed in `00_schema.sql` with DEFAULT ON NULL.
+- Chrome asks "allow access to local network" when a page on oracleapex.com fetches from 127.0.0.1. Only needed for our automated uploads, not for the session.
+
 - `APEX_AI.GENERATE` in a WITH clause (21 Nov): if the outer query uses the reply column in several places, Oracle merges the view and calls the model once per use. Three rows took 18 s instead of 3.4 s. `/*+ materialize */` did not help; `rownum` in the inner select did. In app code, call the model once, store the reply, then check it. See `sql/week1/03_classify_calls.sql`.
