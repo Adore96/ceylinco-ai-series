@@ -107,7 +107,10 @@ create table estimates (
                     check ( review_status in ('AUTO_OK','NEEDS_REVIEW','APPROVED','REJECTED') ),
     reviewer        varchar2(255),
     claim_id        number,                     -- foreign key added below
-    created_on      timestamp with local time zone default systimestamp not null
+    -- WHY "default on null": an APEX form sends an explicit NULL for an
+    -- empty item, and a plain DEFAULT does not fire for an explicit NULL
+    -- (found in the Week 2 rehearsal, 22 Nov: ORA-01400 on insert).
+    created_on      timestamp with local time zone default on null systimestamp not null
 );
 
 -- ---------------------------------------------------------------------
