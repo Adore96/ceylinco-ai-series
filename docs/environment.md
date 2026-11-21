@@ -13,7 +13,7 @@ Environment (verified 17 Nov 2026 on the free workspace at oracleapex.com)
 - Vector Provider types: Database ONNX Model, Generative AI Service, Custom PL/SQL
 - Vector Provider "gemini_embed" (Google Gemini, gemini-embedding-001, 3072 dimensions) is configured (S6, 21 Nov)
 - No direct database connection from outside (no SQLcl); all SQL runs in SQL Workshop
-- Not yet verified: natural-language interactive reports; full AI agent run
+- Natural-language Interactive Report and a full AI Agent run both work (S7, 21 Nov)
 
 ## Spike tests (19 Nov)
 
@@ -54,3 +54,17 @@ Results recorded here as S1 to S7 are run.
 - Credential "Create New" with the API key creates the Web Credential inline. Test Connection passed.
 - `sql/spikes/S6.sql` in SQL Commands: one row, DIMENSIONS 3072, first values `[2.45889695E-003,2.05405001E-002,...`; 0.72 s.
 - Decision: Week 3 RAG embeds live through `APEX_AI.GET_VECTOR_EMBEDDINGS` with `gemini_embed`. The "embeddings computed outside" fallback is not needed. Model `gemini-embedding-001`, 3072 dimensions; the schema keeps `VECTOR(*, FLOAT32)`.
+
+### S7a: Natural-language Interactive Report: PASS (21 Nov)
+- Region Attributes > Generative AI: Natural Language Support on, Default Search Mode **Search with AI**, Report Context set. The app's AI Attributes use the `claude` service.
+- The search bar placeholder is "Search or ask a question...". The question "Show only ACTIVE MOTOR policies and highlight rows where premium is more than 60000" added three report settings: filters `Status = 'ACTIVE'` and `Policy Type = 'MOTOR'`, and a highlight `Premium Lkr > 60000`. The report showed LSM-20007 (highlighted) and LSM-20015 only. Answer in a few seconds.
+- The AI result is ordinary report settings: the room can see each filter as a chip and remove it. This is a good Week 1 point: the AI writes the filter, the database runs it.
+- Decision: show it live in Week 1 (Block 4, c2-ai slide).
+
+### S7b: AI Agent with a Retrieve Data tool: PASS (21 Nov)
+- Shared Components > Generative AI > AI Agents (the list page title is "Generative AI Agents"): `Spike Agent`, service Claude, 1 tool (`get_policies`, Retrieve Data, SQL query on `SPIKE_POLICIES`), Response Format Text.
+- Button `Ask agent` with a Dynamic Action **Show AI Assistant** opens a chat dialog titled "Assistant".
+- Question 1, "Which ACTIVE motor policies have a premium due before 31 January 2027?": answer was only LSM-20015, Nuwan Bandara, due 20 December 2026. It also explained why LSM-20007 (due 10 March 2027) and LSM-20022 (cancelled) were left out.
+- Question 2, about LSL-10034: answer "life policy held by Chamari Fernando, LAPSED, LKR 12,000, no next due date". That row was hidden by the report filter at the time, so the answer came from the tool, not from the page.
+- Running the app from Page Designer opens a new tab with the app's own login page. Sign in there before the demo.
+- Decision: Week 3 uses the AI Agents shared component with Show AI Assistant as the on-stage path. Week 1 can show it live (Block 4, c6-ai slide).
