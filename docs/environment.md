@@ -68,3 +68,7 @@ Results recorded here as S1 to S7 are run.
 - Question 2, about LSL-10034: answer "life policy held by Chamari Fernando, LAPSED, LKR 12,000, no next due date". That row was hidden by the report filter at the time, so the answer came from the tool, not from the page.
 - Running the app from Page Designer opens a new tab with the app's own login page. Sign in there before the demo.
 - Decision: Week 3 uses the AI Agents shared component with Show AI Assistant as the on-stage path. Week 1 can show it live (Block 4, c6-ai slide).
+
+## Lessons from building the demos
+
+- `APEX_AI.GENERATE` in a WITH clause (21 Nov): if the outer query uses the reply column in several places, Oracle merges the view and calls the model once per use. Three rows took 18 s instead of 3.4 s. `/*+ materialize */` did not help; `rownum` in the inner select did. In app code, call the model once, store the reply, then check it. See `sql/week1/03_classify_calls.sql`.
