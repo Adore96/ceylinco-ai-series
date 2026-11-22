@@ -1,8 +1,8 @@
 # Week 1 deck: companion notes
 
-Deck: `presentation/week1/week1-deck.pptx` (PowerPoint, rebuilt on 21 Nov from the Claude Slides artifact, same look, fully editable).
+Deck: `presentation/week1/week1-deck.pptx` (PowerPoint, editable). Source: `presentation/week1/source/` (one HTML file per slide, speaker notes in `<aside>`). Rebuild: `python presentation/tools/build_deck.py --source presentation/week1/source --out presentation/week1/week1-deck.pptx --fonts <font folder>` (see the script header).
 Source artifact (older version, not updated): https://claude.ai/artifact/1G8wqUz8YUFn93rP7fPwoz
-Session: Wednesday 25 November 2026, 210 minutes. 56 slides. Full speaker notes (what to say, timing checkpoint, transition, likely questions) are in each slide's notes.
+Session: Wednesday 25 November 2026, 210 minutes. 57 slides. Full speaker notes (what to say, timing checkpoint, transition, likely questions) are in each slide's notes.
 
 Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 2 (v2) with the v3 changes in files/ceylinco-build-scripts-v3.md, docs/environment.md, docs/apex-faq.md, docs/week1-component-map.md, docs/spikes.md, sql/week1/, data/calls/. All data synthetic (Lanka Shield Assurance). The client's workflow images in images/ were not opened or used; both case flows are redrawn from week1-component-map.md.
 
@@ -91,19 +91,20 @@ Sources: docs/plan.html (running order), files/ceylinco-build-scripts.md Script 
 ### Block 5 · The two cases, mapped to APEX
 
 46. The two cases, mapped to APEX (`d-cases`): 0.5 min. Checkpoint 2:55. Block 5 runs to 3:20.
-47. One app, one data model, two cases (`one-app`): 1.5 min. Checkpoint 2:55.5 -> 2:57.
-48. Eight tables, two cases (`data-model`): 1.5 min, EER diagram. Checkpoint 2:57 -> 2:58.5.
-49. From an estimate photo to a claim (`case1-flow`): 5.5 min. Checkpoint 2:58.5 -> 3:04.
-50. Trust the checks, not the model’s opinion of itself (`case1-trust`): 3 min. Checkpoint 3:04 -> 3:07.
-51. From a call to a reply (`case2-flow`): 6 min. Checkpoint 3:07 -> 3:13.
-52. Three kinds of question, three ways to answer (`case2-answers`): 3 min. Checkpoint 3:13 -> 3:16.
-53. On stage vs in production (`stage-vs-prod`): 2 min. Checkpoint 3:16 -> 3:18.
-54. The next two Wednesdays (`next-weeks`): 2 min. Checkpoint 3:18 -> 3:20.
+47. One app, one data model, two cases (`one-app`): 1 min. Checkpoint 2:55.5 -> 2:56.5.
+48. Person, policy, car, estimate, claim, call (`data-story`): 1 min, mind map. Checkpoint 2:56.5 -> 2:57.5.
+49. Eight tables, two cases (`data-model`): 1 min, EER diagram. Checkpoint 2:57.5 -> 2:58.5.
+50. From an estimate photo to a claim (`case1-flow`): 5.5 min. Checkpoint 2:58.5 -> 3:04.
+51. Trust the checks, not the model’s opinion of itself (`case1-trust`): 3 min. Checkpoint 3:04 -> 3:07.
+52. From a call to a reply (`case2-flow`): 6 min. Checkpoint 3:07 -> 3:13.
+53. Three kinds of question, three ways to answer (`case2-answers`): 3 min. Checkpoint 3:13 -> 3:16.
+54. On stage vs in production (`stage-vs-prod`): 2 min. Checkpoint 3:16 -> 3:18.
+55. The next two Wednesdays (`next-weeks`): 2 min. Checkpoint 3:18 -> 3:20.
 
 ### Block 6 · Q&A
 
-55. Questions (`qa`): 9 min. Checkpoint 3:20 -> 3:29.
-56. Thank you (`closing`): 1 min. Checkpoint 3:29 -> 3:30. END at 3:30 (210 min).
+56. Questions (`qa`): 9 min. Checkpoint 3:20 -> 3:29.
+57. Thank you (`closing`): 1 min. Checkpoint 3:29 -> 3:30. END at 3:30 (210 min).
 
 ## Demo cues
 
@@ -130,7 +131,7 @@ Not demoed (explained only): Select AI (no DBMS_CLOUD_AI on the free workspace).
 3. **Oracle doc links on the closing slide** were not opened from this session. Click each; switch the APEX_AI.GENERATE link from 26.1 to 26.2 if a 26.2 page exists; add the AI Vector Search User's Guide URL.
 4. **Fonts:** the .pptx uses Syne (headings) and DM Sans (body), installed on this PC from Google Fonts, and Consolas for code (JetBrains Mono joined `=>` into an arrow in PowerPoint). Install Syne and DM Sans on any other presenting laptop, or export to PDF on this PC beforehand.
 5. **Engagement (22 Nov):** two meme slides around the classify demo (slides 33 and 35), our own text in the deck style, no copied images. A third meme (Case 1 checks) waits for Week 2 so it can show real tested numbers. Break-the-AI challenge planned for Weeks 2 and 3.
-6. **EER diagram (22 Nov):** slide 48 shows the 8 tables from `presentation/diagrams/eer-all.png` (generator `make_eer.py`); Weeks 2 and 3 use `eer-week2.png` and `eer-week3.png`.
+6. **Mind map and EER (22 Nov):** slide 48 is the mind map (`presentation/diagrams/mindmap.png`, `make_mindmap.py`), slide 49 the EER; slide 49 shows the 8 tables from `presentation/diagrams/eer-all.png` (generator `make_eer.py`); Weeks 2 and 3 use `eer-week2.png` and `eer-week3.png`.
 7. **Closed on 21 Nov:** the 18 Nov recap slide was dropped (its 3 min went to the n8n slide); `sql/week1/03_classify_calls.sql` exists and is tested; S1 is recorded as PASS; the deck is now a .pptx in `presentation/week1/`.
 
 ## UNVERIFIED points (in speaker notes, not on slides as facts)
