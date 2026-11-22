@@ -9,30 +9,30 @@ they remember foreign keys. Same 8 tables as sql/00_schema.sql.
 import argparse, pathlib, subprocess, tempfile
 
 HERE = pathlib.Path(__file__).parent
-W, H = 1664, 820
+W, H = 1664, 640    # wide and short: it fills a slide at full width
 INK, MUTED, CARD = "#23262B", "#4B5058", "#FFFDF9"
 ORANGE, ORANGE_SOFT = "#C2410C", "#FCE7DA"
 BLUE, BLUE_SOFT = "#1D4ED8", "#DCE6FB"
-LW, LH = 360, 100   # leaf box size
+LW, LH = 370, 96    # leaf box size
 PILL_W = 280
 
-CENTER = (832, 400)
+CENTER = (832, 330)
 BRANCHES = {
     # key: (x, y, colour, soft, title lines)
-    "core":  (832, 175, INK, CARD, ["Who is the", "customer?"]),
-    "case1": (530, 400, ORANGE, ORANGE_SOFT, ["Case 1 · Week 2", "A garage estimate"]),
-    "case2": (1134, 400, BLUE, BLUE_SOFT, ["Case 2 · Week 3", "A phone call"]),
+    "core":  (832, 152, INK, CARD, ["Who is the", "customer?"]),
+    "case1": (525, 330, ORANGE, ORANGE_SOFT, ["Case 1 · Week 2", "A garage estimate"]),
+    "case2": (1139, 330, BLUE, BLUE_SOFT, ["Case 2 · Week 3", "A phone call"]),
 }
 LEAVES = [
     # (branch, x, y, table, hook)
-    ("core", 380, 30, "CUSTOMERS", "The person, known by NIC."),
-    ("core", 924, 30, "POLICIES", "Life or motor cover they bought."),
-    ("case1", 4, 230, "VEHICLES", "The car on a motor policy."),
-    ("case1", 4, 360, "ESTIMATES", "Photo, AI reading, SQL checks."),
-    ("case1", 4, 490, "CLAIMS", "What we pay. Checked data only."),
-    ("case2", 1300, 230, "KB_DOCUMENTS", "Product sheets, branches, FAQ."),
-    ("case2", 1300, 360, "KB_CHUNKS", "Small pieces with vectors."),
-    ("case2", 1300, 490, "CALLS", "What the caller said, AI labels."),
+    ("core", 362, 2, "CUSTOMERS", "The person, known by NIC."),
+    ("core", 932, 2, "POLICIES", "Life or motor cover."),
+    ("case1", 2, 160, "VEHICLES", "The car on a motor policy."),
+    ("case1", 2, 275, "ESTIMATES", "Photo, AI reading, checks."),
+    ("case1", 2, 390, "CLAIMS", "What we pay. Checked only."),
+    ("case2", 1292, 160, "KB_DOCUMENTS", "Product sheets, branches."),
+    ("case2", 1292, 275, "KB_CHUNKS", "Small pieces with vectors."),
+    ("case2", 1292, 390, "CALLS", "The call and its AI labels."),
 ]
 
 
@@ -62,11 +62,11 @@ def svg():
             tx, ty = (lx + LW, ly + LH / 2) if lx < bx else (lx, ly + LH / 2)
         o.append(curve(bx, by, tx, ty, col, 4))
     # The thread between the two cases: the call asks about the claim.
-    o.append(f"<path d='M{4 + LW / 2},{490 + LH} C{4 + LW / 2},760 {1300 + LW / 2},760 {1300 + LW / 2},{490 + LH}' fill='none' stroke='{INK}' stroke-width='3' stroke-dasharray='10 9'/>")
-    o.append(f"<text x='832' y='785' text-anchor='middle' font-family='DM Sans' font-weight='700' font-size='24' fill='{INK}'>"
+    o.append(f"<path d='M{2 + LW / 2},{390 + LH} C{2 + LW / 2},590 {1292 + LW / 2},590 {1292 + LW / 2},{390 + LH}' fill='none' stroke='{INK}' stroke-width='3' stroke-dasharray='10 9'/>")
+    o.append(f"<text x='832' y='625' text-anchor='middle' font-family='DM Sans' font-weight='700' font-size='26' fill='{INK}'>"
              "the caller in Week 3 asks about the claim from Week 2</text>")
     # Centre.
-    o.append(f"<ellipse cx='{cx}' cy='{cy}' rx='158' ry='74' fill='{INK}'/>")
+    o.append(f"<ellipse cx='{cx}' cy='{cy}' rx='158' ry='66' fill='{INK}'/>")
     o.append(f"<text x='{cx}' y='{cy - 6}' text-anchor='middle' font-family='Syne' font-weight='700' font-size='30' fill='#F6F2EA'>Lanka Shield</text>")
     o.append(f"<text x='{cx}' y='{cy + 28}' text-anchor='middle' font-family='DM Sans' font-size='22' fill='#C9C3B8'>one app, 8 tables</text>")
     # Branch nodes.
@@ -80,8 +80,8 @@ def svg():
     for br, lx, ly, table, hook in LEAVES:
         _, _, col, soft, _ = BRANCHES[br]
         o.append(f"<rect x='{lx}' y='{ly}' width='{LW}' height='{LH}' rx='16' fill='{soft}' stroke='{col}' stroke-width='3'/>")
-        o.append(f"<text x='{lx + 22}' y='{ly + 38}' font-family='Syne' font-weight='700' font-size='24' fill='{col}'>{table}</text>")
-        o.append(f"<text x='{lx + 22}' y='{ly + 74}' font-family='DM Sans' font-size='20' fill='{INK}'>{esc(hook)}</text>")
+        o.append(f"<text x='{lx + 22}' y='{ly + 38}' font-family='Syne' font-weight='700' font-size='28' fill='{col}'>{table}</text>")
+        o.append(f"<text x='{lx + 22}' y='{ly + 76}' font-family='DM Sans' font-size='24' fill='{INK}'>{esc(hook)}</text>")
     o.append("</svg>")
     return "".join(o)
 
