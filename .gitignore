@@ -10,3 +10,7 @@ Thumbs.db
 
 # Deck build tools
 node_modules/
+
+# APEX exports hold app IDs and workspace details (see docs/checkpoints.md)
+apex/**/*.sql
+apex/**/*.zip
