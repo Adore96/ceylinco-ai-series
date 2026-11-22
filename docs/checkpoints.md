@@ -74,7 +74,7 @@ commit;
 
 Then upload again from E01, in order: E01 (and step 10), E02, E03.
 
-Tasks created for deleted estimates stay in My Reviews. Approve-or-reject them only if they block the demo. Their approve action would fail on a missing row.
+Tasks created for deleted estimates stay in My Reviews. Approve or reject them only if they block the demo. Their approve action would fail on a missing row.
 
 UNVERIFIED: what a Task Details page shows when the estimate row is gone.
 
