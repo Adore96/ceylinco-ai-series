@@ -7,3 +7,6 @@ secrets/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Deck build tools
+node_modules/

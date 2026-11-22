@@ -1,0 +1,6 @@
+{
+  "name": "deck-tools",
+  "private": true,
+  "description": "Builds the series decks as editable .pptx (see build_deck.py)",
+  "dependencies": { "pptxgenjs": "3.12.0" }
+}
