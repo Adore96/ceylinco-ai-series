@@ -1,0 +1,16 @@
+<section id="apexai-vs-selectai"><div class="head"><p class="eyebrow">Two ways to call AI from Oracle</p><h2>APEX_AI and Select AI</h2></div>
+<table>
+<tr><th style="width:22%"></th><th style="width:39%">APEX_AI</th><th style="width:39%">Select AI</th></tr>
+<tr><td>Who writes the prompt</td><td>You</td><td>The database, from your question and schema</td></tr>
+<tr><td>Typical call</td><td>APEX_AI.GENERATE</td><td>SELECT AI …</td></tr>
+<tr><td>Package</td><td>APEX_AI (PL/SQL in APEX)</td><td>DBMS_CLOUD_AI</td></tr>
+<tr><td>Our workspace</td><td>Works. Used in all 3 weeks.</td><td>Not available</td></tr>
+</table>
+<p class="body">Database analogy: APEX_AI is a query you write. Select AI writes the query for you.</p>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 3 · Oracle AI</p>
+<aside>TIME: 3.5 min. Checkpoint 1:01.5 -&gt; 1:05. END OF BLOCK 3 at 1:05.
+- APEX_AI: you write the prompt and call the model. Requires an APEX session. Verified on our workspace: select apex_ai.generate(p_prompt =&gt; &#x27;...&#x27;, p_service_static_id =&gt; &#x27;claude&#x27;) from dual returns a classification in about 1.3 s (environment.md).
+- Select AI: plain-language question to SQL using schema metadata. Needs DBMS_CLOUD_AI.
+LIKELY Q: &quot;What is the difference between APEX_AI and Select AI?&quot; A: as on the slide (apex-faq.md).
+TRANSITION: &quot;15-minute break. After it: APEX component by component.&quot;</aside>
+</section>

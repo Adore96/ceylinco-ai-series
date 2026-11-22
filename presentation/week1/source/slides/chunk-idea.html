@@ -1,0 +1,14 @@
+<section id="chunk-idea"><div class="head"><p class="eyebrow">Chunking</p><h2>Cut the document before you search it</h2></div>
+<div class="cards3">
+<div class="card"><h3>Why</h3><p class="txt">A search should return one focused paragraph, not a whole manual.</p></div>
+<div class="card"><h3>How</h3><p class="txt">DBMS_VECTOR_CHAIN.UTL_TO_CHUNKS cuts text inside the database. One SQL call. No Python.</p></div>
+<div class="card"><h3>Settings</h3><p class="txt">Size, overlap, and where to split, for example at sentence ends.</p></div>
+</div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 3 · Oracle AI</p>
+<aside>TIME: 2.5 min. Checkpoint 0:47.5 -&gt; 0:50.
+- Analogy: like partitioning a big table so a query reads only the part it needs.
+- Overlap: a few words repeat between chunks so a sentence cut in two is not lost.
+- Week 3 stores the chunks in KB_CHUNKS and embeds them.
+LIKELY Q: &quot;What is chunking and why does the database do it?&quot; A: Cutting long documents into short pieces before embedding, so a search returns a focused paragraph. UTL_TO_CHUNKS does it in one SQL call. (apex-faq.md)
+TRANSITION: &quot;The SQL.&quot;</aside>
+</section>

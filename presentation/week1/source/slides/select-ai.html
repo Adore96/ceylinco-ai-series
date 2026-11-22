@@ -1,0 +1,14 @@
+<section id="select-ai"><div class="head"><p class="eyebrow">Explained, not demoed</p><h2>Select AI: a question becomes SQL</h2></div>
+<p class="pill warn">Available on Autonomous Database · needs DBMS_CLOUD_AI · not on our free workspace</p>
+<div class="code"><p><span class="k">exec</span> dbms_cloud_ai.set_profile('LS_PROFILE');<br><span class="k">select ai</span> showsql how many motor policies are lapsed;</p></div>
+<p class="body">The database reads your schema’s metadata and writes the SQL. It can run it, show it, or explain it.</p>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 3 · Oracle AI</p>
+<aside>TIME: 4.5 min. Checkpoint 0:57 -&gt; 1:01.5.
+- Select AI uses DBMS_CLOUD_AI. Our free workspace does not have it, so we explain only (environment.md).
+- An AI profile (set with DBMS_CLOUD_AI) names the provider and which tables it may look at.
+- Actions to mention: run the SQL, show the SQL, explain the SQL (apex-faq.md wording).
+- &#x27;LS_PROFILE&#x27; is a made-up profile name. Shown as syntax only; not run.
+UNVERIFIED: exact profile setup and the full action list in 26ai. Check &quot;About Select AI&quot; in Oracle docs before 25 Nov.
+UNVERIFIED: whether Select AI is available on non-Autonomous Oracle AI Database 26ai. apex-faq.md says the free-workspace limits do not apply &quot;on your own database or on Autonomous Database&quot;. If asked, say &quot;Autonomous Database for sure; I will confirm for on-premises.&quot;
+TRANSITION: &quot;How is that different from what we will use?&quot;</aside>
+</section>

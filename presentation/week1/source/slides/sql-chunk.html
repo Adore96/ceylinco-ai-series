@@ -1,0 +1,11 @@
+<section id="sql-chunk"><div class="head"><p class="eyebrow">sql/week1/02_chunking.sql</p><h2>One call returns the chunks as rows</h2></div>
+<div class="code"><p><span class="k">select</span> jt.chunk_id, jt.chunk_length, jt.chunk_data<br>&#160;&#160;<span class="k">from</span> doc d,<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="k">table</span>( dbms_vector_chain.utl_to_chunks( d.body,<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;json('{ "by": "words", "max": "40",<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"overlap": "4", "split": "sentence" }') ) ) c,<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;json_table( c.column_value, '$' columns ( ... ) ) jt<br>&#160;<span class="k">order by</span> jt.chunk_id;</p></div>
+<p class="body">Each chunk comes back as JSON. JSON_TABLE turns it into columns.</p>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 3 · Oracle AI</p>
+<aside>TIME: 2.5 min. Checkpoint 0:50 -&gt; 0:52.5.
+- Shortened on the slide. The file has the full JSON_TABLE columns: chunk_id, chunk_offset, chunk_length, chunk_data.
+- TABLE() turns the returned collection into rows. Familiar to this room.
+- Parameters (docs checked 19 Nov 2026, PL/SQL Packages and Types Reference, per file header): by words, max 10 to 1000 for words, overlap 0 or 5% to 20% of max, split sentence.
+- The document is a made-up Lanka Shield motor product sheet, 110 words, 6 numbered clauses.
+TRANSITION: &quot;Guess the number of rows.&quot;</aside>
+</section>

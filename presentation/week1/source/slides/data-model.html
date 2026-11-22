@@ -1,0 +1,17 @@
+<section id="data-model"><div class="head"><p class="eyebrow">sql/00_schema.sql</p><h2>Eight tables, two cases</h2></div>
+<div class="row" style="align-items:flex-start;gap:40px">
+<img src="../../diagrams/eer-all.png" alt="Entity relationship diagram of the eight shared tables" style="width:1290px;height:620px;flex:none">
+<div class="col" style="gap:20px;flex:none;width:334px">
+<div class="card" style="padding:20px 24px;gap:6px"><h3 style="font-size:28px">Shared core</h3><p class="txt" style="font-size:24px">Customers and their life and motor policies.</p></div>
+<div class="card" style="padding:20px 24px;gap:6px;border-color:#C2410C;background:#FCE7DA"><h3 style="font-size:28px">Case 1 · Week 2</h3><p class="txt" style="font-size:24px">Vehicles, estimates, claims.</p></div>
+<div class="card" style="padding:20px 24px;gap:6px;border-color:#1D4ED8;background:#DCE6FB"><h3 style="font-size:28px">Case 2 · Week 3</h3><p class="txt" style="font-size:24px">Calls, KB documents, KB chunks.</p></div>
+</div></div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 5 · Two cases</p>
+<aside>TIME: 1 min. Checkpoint 2:57.5 -&gt; 2:58.5.
+- Read it like any ER diagram: 1 and N mark the ends of each foreign key.
+- Point at CLAIMS: a claim comes from an estimate in Week 2 and a caller asks about it in Week 3. One row, two cases.
+- Point at the JSON and VECTOR columns: the AI output lands in normal columns, so normal SQL checks it.
+- CLAIMS and ESTIMATES point at each other (1 to 1): the claim keeps its source estimate, the estimate knows the claim it became.
+- Weeks 2 and 3 open with the same picture, each with its own tables lit.
+TRANSITION: &quot;Case 1, step by step.&quot;</aside>
+</section>

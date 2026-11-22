@@ -1,0 +1,14 @@
+<section id="c2-ai"><div class="head"><p class="eyebrow">2 of 7 · Pages and regions · What AI adds</p><h2>AI chat on a page, and reports that understand words</h2></div>
+<div class="cards"><div class="card hot"><h3>AI chat panel</h3><p class="txt">An assistant on the page, opened by the Show AI Assistant dynamic action. It can use an AI Agent.</p></div><div class="card"><h3>Natural-language Interactive Report</h3><p class="txt">The user types a request. APEX turns it into normal report settings: filters, sorts, highlights. It does not run AI-written SQL.</p></div></div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 4 · Pages and regions</p>
+<aside>TIME: 5 min. Checkpoint 1:40 -&gt; 1:45.
+- Plan wording: &quot;An AI chat region inside a page.&quot; In our spike notes the chat is opened by the Show AI Assistant dynamic action (spikes.md S7b, per APEX 26.1 App Builder Guide).
+- NL Interactive Report: Oracle documents that it turns the request into declarative report settings (filters, highlights, sorts, breaks, charts, pivots) instead of running AI-generated SQL. The user sees and can undo each setting (apex-faq.md).
+- This matters to a DBA: no surprise SQL against your tables from the model.
+DEMO (S7a PASSED, 21 Nov): open the spike app, page Policies (sign in to the app first: it opens its own login page). In the search bar (&quot;Search or ask a question...&quot;) type: Show only ACTIVE MOTOR policies and highlight rows where premium is more than 60000. EXPECTED: two filter chips (Status = &#x27;ACTIVE&#x27;, Policy Type = &#x27;MOTOR&#x27;) and a highlight (Premium Lkr &gt; 60000); rows LSM-20007 (highlighted) and LSM-20015 only.
+- Point at the chips: the AI wrote report settings, the database ran them. Remove one chip to show it is a normal filter.
+FALLBACK: describe it from this slide.
+LIKELY Q: &quot;Does the AI write and run SQL against my tables?&quot; A: No, it applies report settings (apex-faq.md).
+UNVERIFIED: whether a dedicated &quot;AI chat region&quot; type exists in 26.2 in addition to the dynamic action. Kept to the spike wording.
+TRANSITION: &quot;Pages call logic. Logic lives in processes.&quot;</aside>
+</section>

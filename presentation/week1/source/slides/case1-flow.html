@@ -1,0 +1,14 @@
+<section id="case1-flow"><div class="head"><p class="eyebrow">Case 1 · Garage estimate document AI · Week 2</p><h2>From an estimate photo to a claim</h2></div>
+<div class="cards4"><div class="step"><p class="num">1</p><p class="what">Upload the estimate</p><p class="tag">File Upload item › BLOB</p><p class="wk">Week 2</p></div><div class="step dim"><p class="num">2</p><p class="what">Clean up the image</p><p class="tag">Not a step on stage</p><p class="wk">Production slide</p></div><div class="step"><p class="num">3</p><p class="what">AI reads it into JSON</p><p class="tag">APEX_AI.GENERATE + image, in a process</p><p class="wk">Week 2</p></div><div class="step"><p class="num">4</p><p class="what">Good enough?</p><p class="tag">SQL checks on the JSON + model score</p><p class="wk">Week 2</p></div><div class="step"><p class="num">5</p><p class="what">Person reviews if unsure</p><p class="tag">Task Definition + Unified Task List</p><p class="wk">Week 2</p></div><div class="step"><p class="num">6</p><p class="what">Save as a claim</p><p class="tag">PL/SQL inserts into CLAIMS</p><p class="wk">Week 2</p></div><div class="step"><p class="num">7</p><p class="what">See the whole customer</p><p class="tag">Create App wizard · Customer 360</p><p class="wk">Week 2</p></div></div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 5 · Case 1</p>
+<aside>TIME: 5.5 min. Checkpoint 2:58.5 -&gt; 3:04.
+Source: docs/week1-component-map.md, Case 1.
+1. Page with a File Upload item; image saved to ESTIMATES.image (BLOB).
+2. No separate clean-up step on stage. The model reads skewed or stamped photos directly; 3 messy test images prove it. Production may add an image service.
+3. APEX_AI.GENERATE with the image as an attachment (S1 PASSED, 20 Nov), called from a page process. JSON is asked for in the prompt and checked with IS JSON, because schema mode failed (S2). Output to ESTIMATES.extracted_json.
+4. SQL checks: required fields present, line items add up (JSON_TABLE + SUM), vehicle matches an ACTIVE motor policy. Plus model_score. Any failure -&gt; review_status = NEEDS_REVIEW.
+5. Task Definition (approval) + Unified Task List. S4 PASSED.
+6. PL/SQL creates a CLAIMS row from an AUTO_OK or APPROVED estimate.
+7. Create App wizard, Customer 360 page.
+TRANSITION: &quot;One deliberate design choice in this case.&quot;</aside>
+</section>

@@ -1,0 +1,28 @@
+<section id="architecture"><div class="head"><p class="eyebrow">How APEX runs</p><h2>The app lives in the database</h2></div>
+<div class="arch">
+<div class="abox"><h3>Browser</h3><p class="txt">Any device. No install.</p></div>
+<x-connector head="both" style="width:96px;height:0"></x-connector>
+<div class="abox"><h3>ORDS</h3><p class="txt">Web server. Passes requests through.</p></div>
+<x-connector head="both" style="width:96px;height:0"></x-connector>
+<div class="abox db"><h3>APEX engine</h3><p class="txt">PL/SQL inside Oracle AI Database 26ai, next to your tables.</p></div>
+<x-connector head="both" style="width:96px;height:0"></x-connector>
+<div class="abox"><h3>External services</h3><p class="txt">Claude, Gemini, REST APIs, MCP servers</p></div>
+</div>
+<div class="arch">
+<p class="setup"><b>Ours:</b> laptop on the projector</p><div class="gap96"></div>
+<p class="setup"><b>Ours:</b> hosted by oracleapex.com</p><div class="gap96"></div>
+<p class="setup"><b>Ours:</b> APEX 26.2.1 on 26ai (23.26.2), free workspace</p><div class="gap96"></div>
+<p class="setup"><b>Ours:</b> “claude” service; Gemini in Week 3</p>
+</div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 2 · APEX tour</p>
+<aside>TIME: 5 min. Checkpoint 0:15.5 -&gt; 0:20.5.
+SAY: &quot;APEX is SQL with a screen: the app lives in the database; ORDS just serves it.&quot;
+- Left to right: browser asks ORDS for a page. ORDS hands the request to the APEX engine. The engine is PL/SQL inside the database. It runs your SQL and sends back HTML.
+- Apps are stored as metadata in the database. Logic runs next to the data.
+- External services: the AI model (Anthropic Claude), embeddings (Google Gemini, Week 3), any REST API.
+- Second row is our concrete setup: free workspace at oracleapex.com, APEX 26.2.1, Oracle AI Database 26ai (23.26.2). Generative AI Service static ID &quot;claude&quot;. Vector Provider &quot;gemini_embed&quot; in Week 3.
+UNVERIFIED: &quot;MCP servers&quot; is in the box because the v3 brief asks for it. It is not in environment.md or apex-faq.md and is not used in this series. If asked: &quot;not part of our build; I will check the 26.2 docs.&quot;
+LIKELY Q: &quot;Where does the app actually run?&quot; A: Browser &gt; ORDS &gt; APEX engine (PL/SQL in the database) &gt; your tables. ORDS only passes requests through. (apex-faq.md)
+LIKELY Q: &quot;Does APEX cost extra?&quot; A: No. Oracle describes APEX as a no-cost, fully supported feature of Oracle Database. You still need the database licence; AI providers bill separately. (apex-faq.md)
+TRANSITION: &quot;Now, the rooms inside a workspace.&quot;</aside>
+</section>

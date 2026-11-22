@@ -1,0 +1,17 @@
+<section id="c3-demo" class="predict"><div class="head"><p class="eyebrow">Predict first, then switch to demo</p><h2>Three calls. Which label for each?</h2></div>
+<div class="cards3">
+<div class="card"><h3>CALL-001</h3><p class="txt">“I want to know when my next premium is due. Policy number is LSL-10021.”</p></div>
+<div class="card"><h3>CALL-009</h3><p class="txt">“I want to know what happened to my claim. Number is CLM-26-0004.”</p></div>
+<div class="card"><h3>CALL-017</h3><p class="txt">“Is your Kandy branch open on Saturday?”</p></div>
+</div>
+<p class="body">Expect: POLICY · CLAIM · PRODUCT_BRANCH</p>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 4 · Processes and PL/SQL</p>
+<aside>TIME: 8 min. Checkpoint 1:54 -&gt; 2:02.
+PREDICT: show the three quotes. Ask the room to label each. Then run.
+DEMO: SQL Workshop &gt; SQL Commands. Paste sql/week1/03_classify_calls.sql (all three transcripts are inside it). Run once.
+EXPECTED: CALL-001 -&gt; POLICY, CALL-009 -&gt; CLAIM, CALL-017 -&gt; PRODUCT_BRANCH (expected labels in data/calls/transcripts.json; demo choice from data/calls/README.md). Result columns CALL_ID, EXPECTED, AI_INTENT, MATCH, RAW_REPLY; MATCH = Y on all three; about 3.5 s in total (tested 21 Nov).
+TALKING POINT: the model only proposes a label. SQL checks it: IS JSON first, then JSON_VALUE, and MATCH is a plain comparison. A reply that is not JSON shows as INVALID instead of an error.
+TALKING POINT (if asked about speed): the first version took 18 s, because the optimizer copied the AI call into every place the reply column was used. ROWNUM in the inner query fixed it. Lesson: call the model once, store the reply, then check it.
+FALLBACK: if the service is slow, read out the expected labels and move on.
+TRANSITION: one more slide, a true story about this query.</aside>
+</section>

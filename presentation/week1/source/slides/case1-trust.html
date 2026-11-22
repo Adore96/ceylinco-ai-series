@@ -1,0 +1,12 @@
+<section id="case1-trust"><div class="head"><p class="eyebrow">Case 1 · the design choice</p><h2>Trust the checks, not the model’s opinion of itself</h2></div>
+<div class="cards3">
+<div class="card"><h3>AI reads</h3><p class="txt">The model turns the image into JSON: garage, vehicle, line items, total.</p></div>
+<div class="card hot"><h3>SQL decides</h3><p class="txt">Required fields? Do line items add up? Does the vehicle have an active motor policy?</p></div>
+<div class="card"><h3>A person signs</h3><p class="txt">Any failed check goes to an approval task. Approved estimates become claims.</p></div>
+</div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 5 · Case 1</p>
+<aside>TIME: 3 min. Checkpoint 3:04 -&gt; 3:07.
+- Many document-AI flows ask the model for a confidence score and trust it. Here the SQL checks run first; the score is one input only (week1-component-map.md).
+- For this room: the checks are queries they could write today. &quot;Line items add up&quot; is one JSON_TABLE + SUM.
+TRANSITION: &quot;Case 2: the call centre.&quot;</aside>
+</section>

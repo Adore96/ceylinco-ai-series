@@ -1,0 +1,14 @@
+<section id="page-is-query"><div class="head"><p class="eyebrow">APEX is SQL with a screen</p><h2>A report page is a query</h2></div>
+<div class="row">
+<div class="code" style="flex:1"><p><span class="c">-- Source of a report region</span><br><span class="k">select</span> policy_no, product_name,<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;status, end_date<br>&#160;&#160;<span class="k">from</span> policies<br>&#160;<span class="k">where</span> customer_id = :P10_CUSTOMER_ID<br>&#160;<span class="k">order by</span> end_date</p></div>
+<div class="col" style="flex:0 0 560px"><p class="body">You write the query.</p><p class="body">APEX adds the screen: paging, search, sort, filters, download.</p><p class="body"><b>:P10_CUSTOMER_ID</b> is a page item, used as a bind variable.</p></div>
+</div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 2 · APEX tour</p>
+<aside>TIME: 3 min. Checkpoint 0:23.5 -&gt; 0:26.5.
+- This is our Week 2 schema (POLICIES table, sql/00_schema.sql). Same SQL they write every day.
+- The region&#x27;s source is SQL. APEX draws the report around it.
+- :P10_CUSTOMER_ID is a page item. Page items are bind variables. Never concatenate strings into SQL.
+LIKELY Q: &quot;Is it secure to build pages from SQL?&quot; A: Same rules as any Oracle code: bind variables. APEX adds authentication schemes, authorization schemes and session state protection. (apex-faq.md)
+NOTE: P10 is just an example page number.
+TRANSITION: &quot;Our workspace is free. What does free give us?&quot;</aside>
+</section>

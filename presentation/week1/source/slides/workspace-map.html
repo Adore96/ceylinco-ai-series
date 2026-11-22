@@ -1,0 +1,16 @@
+<section id="workspace-map"><div class="head"><p class="eyebrow">Where things live</p><h2>Inside a workspace</h2></div>
+<div class="cards">
+<div class="card"><h3>SQL Workshop</h3><p class="txt">Run SQL. SQL Commands for one statement, SQL Scripts for many. Every demo today runs here.</p></div>
+<div class="card"><h3>App Builder</h3><p class="txt">Apps, pages, regions, items and processes. Each page is built from SQL and PL/SQL.</p></div>
+<div class="card"><h3>Shared Components</h3><p class="txt">Set once, used by every page: AI services, AI agents, workflows, task definitions.</p></div>
+<div class="card"><h3>Workspace Utilities</h3><p class="txt">Workspace settings. API keys are stored in Web Credentials, never in code.</p></div>
+</div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 2 · APEX tour</p>
+<aside>TIME: 3 min. Checkpoint 0:20.5 -&gt; 0:23.5.
+- A workspace is like a schema with tools around it.
+- SQL Workshop: SQL Commands (one statement or PL/SQL block) and SQL Scripts (many statements). We have no SQLcl connection; all SQL runs here (environment.md).
+- Shared Components seen on our workspace: AI Attributes, AI Agents, AI Services, Task Definitions, Workflows (environment.md).
+- Keys: Web Credentials. Code refers to the service by its static ID, e.g. &#x27;claude&#x27;. Oracle documents that an app export leaves out the credential secret (apex-faq.md).
+LIKELY Q: &quot;Do keys end up in exported apps?&quot; A: No, the Web Credential secret is left out of the export.
+TRANSITION: &quot;What does &#x27;built from SQL&#x27; look like?&quot;</aside>
+</section>

@@ -1,0 +1,128 @@
+{
+ "v": 5,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-20T10:00:00Z"
+ },
+ "lists": "css",
+ "format": {
+  "v": 1,
+  "shared": [
+   "project/deck.css"
+  ]
+ },
+ "title": "AI in Oracle APEX \u00b7 Week 1 \u00b7 Noob Dev for Ceylinco",
+ "order": [
+  "cover",
+  "anchor",
+  "agenda",
+  "rules",
+  "d-bridge",
+  "n8n-vs-apex",
+  "when-which",
+  "d-tour",
+  "architecture",
+  "workspace-map",
+  "page-is-query",
+  "free-workspace",
+  "demo-tour",
+  "d-oracle-ai",
+  "vector-idea",
+  "predict-vector",
+  "sql-vector",
+  "demo-vector",
+  "result-vector",
+  "chunk-idea",
+  "sql-chunk",
+  "demo-chunk",
+  "select-ai",
+  "apexai-vs-selectai",
+  "break1",
+  "d-components",
+  "c1-normal",
+  "c1-ai",
+  "c2-normal",
+  "c2-ai",
+  "c3-normal",
+  "c3-ai",
+  "meme-json",
+  "c3-demo",
+  "meme-optimizer",
+  "c4-normal",
+  "c4-ai",
+  "c5-normal",
+  "c5-ai",
+  "c6-normal",
+  "c6-ai",
+  "c7-normal",
+  "c7-ai",
+  "c-recap",
+  "break2",
+  "d-cases",
+  "one-app",
+  "data-story",
+  "data-model",
+  "case1-flow",
+  "case1-trust",
+  "case2-flow",
+  "case2-answers",
+  "stage-vs-prod",
+  "next-weeks",
+  "qa",
+  "closing"
+ ],
+ "sections": {
+  "s0": {
+   "description": "Opening: title, the anchor line, running order, ground rules.",
+   "start": "cover"
+  },
+  "s1": {
+   "description": "Block 1, Bridge (15 min incl. opening): n8n and APEX, when to use which.",
+   "start": "d-bridge"
+  },
+  "s2": {
+   "description": "Block 2, APEX tour (20 min): how APEX runs and where things live.",
+   "start": "d-tour"
+  },
+  "s3": {
+   "description": "Block 3, Oracle AI Database updates (30 min): vectors, chunking, Select AI.",
+   "start": "d-oracle-ai"
+  },
+  "s4": {
+   "description": "Break (15 min).",
+   "start": "break1"
+  },
+  "s5": {
+   "description": "Block 4, Components and their AI (85 min): seven pairs, normal first.",
+   "start": "d-components"
+  },
+  "s6": {
+   "description": "Break (10 min).",
+   "start": "break2"
+  },
+  "s7": {
+   "description": "Block 5, The two cases mapped to APEX (25 min).",
+   "start": "d-cases"
+  },
+  "s8": {
+   "description": "Q&A (10 min) and further reading.",
+   "start": "qa"
+  }
+ },
+ "cover": "cover",
+ "faces": {
+  "syne": {
+   "family": "Syne",
+   "href": "https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
+  },
+  "dm-sans": {
+   "family": "DM Sans",
+   "href": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+  },
+  "jetbrains-mono": {
+   "family": "JetBrains Mono",
+   "href": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+  }
+ },
+ "designSystems": []
+}

@@ -1,0 +1,12 @@
+<section id="meme-optimizer" style="justify-content:center;gap:28px"><p class="eyebrow">A true story from building today's demo</p>
+<div class="bubble me"><p class="who">Me</p><p class="say">Why does a query with 3 rows take 18 seconds?</p></div>
+<div class="bubble"><p class="who">Oracle optimizer</p><p class="say">I merged your view. Then I called the AI once for every place you used the column.</p></div>
+<div class="bubble me"><p class="who">Me</p><p class="say">...how many times is that?</p></div>
+<div class="bubble"><p class="who">Oracle optimizer</p><p class="say">About fifteen. You're welcome. &#128077;</p></div>
+<p class="lesson">Lesson: call the model once, store the reply, then check it</p>
+<aside>TIME: 1 min (taken from the classify demo). Checkpoint 2:02 -&gt; 2:03.
+- True story, 21 Nov: the first version of 03_classify_calls.sql took 18.2 s; one call alone takes about 0.7 s. The optimizer merged the WITH clause and repeated APEX_AI.GENERATE for each use of RAW_REPLY. A /*+ materialize */ hint did not help; ROWNUM in the inner query did (3.4 s).
+- &quot;About fifteen&quot; is an estimate from the timings, not a counted number. Say so if asked.
+- Why it matters for a DBA: an AI call is an expensive, paid, non-deterministic function. Treat it like one.
+TRANSITION: &quot;Where did &#x27;claude&#x27; come from? That is the next component.&quot;</aside>
+</section>

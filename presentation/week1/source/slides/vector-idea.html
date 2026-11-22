@@ -1,0 +1,15 @@
+<section id="vector-idea"><div class="head"><p class="eyebrow">Vectors</p><h2>Search by meaning, not by words</h2></div>
+<div class="cards3">
+<div class="card"><h3>A vector</h3><p class="txt">A list of numbers that describes a piece of text. Stored in a VECTOR column.</p></div>
+<div class="card"><h3>An embedding model</h3><p class="txt">Turns text into that list. Real models make hundreds of numbers.</p></div>
+<div class="card hot"><h3>A search</h3><p class="txt">VECTOR_DISTANCE, then ORDER BY and FETCH FIRST. You already know this part.</p></div>
+</div>
+<p class="body">Today’s demo uses hand-made vectors with 3 numbers: [motor, life, branch].</p>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 3 · Oracle AI</p>
+<aside>TIME: 3.5 min. Checkpoint 0:35.5 -&gt; 0:39.
+- Database analogy: like an index, but for meaning. Instead of matching the same words, we measure how close two lists of numbers are.
+- No model is used in demo 1. I made the numbers by hand so you see only the SQL.
+- In Week 3 a real model (Gemini, through an APEX Vector Provider) makes the numbers.
+LIKELY Q: &quot;Can we do vector search without an embedding model in the database?&quot; A: Yes. VECTOR and VECTOR_DISTANCE are plain SQL. Embeddings can come from an outside provider and be stored in a normal column. (apex-faq.md)
+TRANSITION: &quot;Before I run it, a guess from you.&quot;</aside>
+</section>

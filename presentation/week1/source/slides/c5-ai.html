@@ -1,0 +1,15 @@
+<section id="c5-ai"><div class="head"><p class="eyebrow">5 of 7 · Vector providers · What AI adds</p><h2>The basis of AI search over documents</h2></div>
+<div class="cards"><div class="card hot"><h3>RAG is a search query before the answer</h3><p class="txt">Find the right chunks first with VECTOR_DISTANCE. Then let the AI write the answer from them.</p></div></div><div class="row" style="align-items:center">
+<p class="step" style="flex:1"><b>1</b> Product sheets in a table</p><x-connector style="width:48px;height:0"></x-connector>
+<p class="step" style="flex:1"><b>2</b> Chunk in SQL</p><x-connector style="width:48px;height:0"></x-connector>
+<p class="step" style="flex:1"><b>3</b> Embed via provider</p><x-connector style="width:48px;height:0"></x-connector>
+<p class="step" style="flex:1"><b>4</b> Top chunks by distance</p><x-connector style="width:48px;height:0"></x-connector>
+<p class="step" style="flex:1"><b>5</b> AI writes the answer</p>
+</div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 4 · Vector providers</p>
+<aside>TIME: 5 min. Checkpoint 2:18 -&gt; 2:23.
+- RAG = retrieval-augmented generation. For this room: retrieve rows first, then generate.
+- Flow (Week 3, Case 2 step 6c): KB_DOCUMENTS -&gt; UTL_TO_CHUNKS -&gt; embeddings via the vector provider -&gt; VECTOR_DISTANCE top chunks -&gt; APEX_AI.GENERATE writes the answer with clause citations.
+- Block 3&#x27;s two demos were steps 2 and 4 of this chain.
+TRANSITION: &quot;Next: letting the AI call your code, safely.&quot;</aside>
+</section>

@@ -1,0 +1,12 @@
+<section id="c3-ai"><div class="head"><p class="eyebrow">3 of 7 · Processes and PL/SQL · What AI adds</p><h2>One AI call from SQL</h2></div>
+<div class="cards"><div class="card hot"><h3>Classify a call transcript</h3><p class="txt">Label each call POLICY, CLAIM, PRODUCT_BRANCH or OTHER.</p></div></div><div class="code"><p><span class="k">select</span> json_value( apex_ai.generate(<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p_prompt =&gt; 'Label this call POLICY, CLAIM, PRODUCT_BRANCH or OTHER. '<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|| 'Reply with only JSON like {"intent":"POLICY"}. '<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|| q'[ ...the transcript... ]',<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p_service_static_id =&gt; 'claude' ), '$.intent' ) <span class="k">as</span> intent<br>&#160;&#160;<span class="k">from</span> dual;</p></div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 4 · Processes and PL/SQL</p>
+<aside>TIME: 4.5 min. Checkpoint 1:49 -&gt; 1:53.5.
+- APEX_AI.GENERATE sends a prompt to the service with static ID &#x27;claude&#x27; and returns text.
+- Verified on our workspace: this pattern returns a classification in about 1.3 s (environment.md).
+- The labels match Week 3: CALLS.ai_intent = POLICY / CLAIM / PRODUCT_BRANCH / OTHER.
+- Why JSON in the prompt: the JSON schema option (p_response_json_schema) failed with ORA-20959 on our service (spike S2, 20 Nov). Asking for JSON in the prompt works, and SQL reads it with JSON_VALUE.
+- The transcript is pasted into the q&#x27;[...]&#x27; quote. q-quotes avoid escaping apostrophes in the text.
+- In a page process you would use a bind variable instead of a pasted literal.
+TRANSITION: &quot;Before the demo, one picture.&quot;</aside>
+</section>

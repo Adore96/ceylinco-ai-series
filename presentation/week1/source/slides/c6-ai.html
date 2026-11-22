@@ -1,0 +1,11 @@
+<section id="c6-ai"><div class="head"><p class="eyebrow">6 of 7 · AI agents · What AI adds</p><h2>An assistant that calls approved tools</h2></div>
+<div class="cards"><div class="card hot"><h3>The flow</h3><p class="txt">A caller asks about a claim. The agent picks get_claim_status, runs it, and answers from the row it returns.</p></div><div class="card"><h3>Why it is safe</h3><p class="txt">The model never writes SQL here. It chooses a tool. Your PL/SQL runs the query.</p></div></div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 4 · AI agents</p>
+<aside>TIME: 5 min. Checkpoint 2:27 -&gt; 2:32.
+- Week 3, Case 2 steps 6a and 6b: policy and claim questions. The caller asks about the claim created in Week 2.
+DEMO (S7b PASSED, 21 Nov): spike app, page Policies, button Ask agent (Show AI Assistant dynamic action, agent Spike Agent, one Retrieve Data tool get_policies). Ask: Which ACTIVE motor policies have a premium due before 31 January 2027? Give policy number, holder and due date. EXPECTED: only LSM-20015, Nuwan Bandara, due 20 December 2026; it explains why LSM-20007 and LSM-20022 are left out.
+- Proof it used the tool: ask about LSL-10034 while the report is filtered to MOTOR. The row is not on screen, yet the answer is right (Chamari Fernando, LAPSED, LKR 12,000).
+- Tool calling from APEX_AI.GENERATE also works (S3 PASSED, 20 Nov).
+FALLBACK: route by intent in PL/SQL and call the function directly (week1-component-map.md).
+TRANSITION: &quot;Last component: when a person must sign off.&quot;</aside>
+</section>

@@ -1,0 +1,16 @@
+<section id="case2-flow"><div class="head"><p class="eyebrow">Case 2 · Intelligent call centre · Week 3</p><h2>From a call to a reply</h2></div>
+<div class="cards5"><div class="step"><p class="num">1</p><p class="what">Customer calls</p><p class="tag">Text transcript in CALLS</p><p class="wk">Week 3</p></div><div class="step"><p class="num">2</p><p class="what">Human triage</p><p class="tag">Triage page: BOT or SPECIALIST</p><p class="wk">Week 3</p></div><div class="step"><p class="num">3</p><p class="what">Missed complaint?</p><p class="tag">AI safety flag, APEX_AI</p><p class="wk">Week 3</p></div><div class="step dim"><p class="num">4</p><p class="what">Phone and speech-to-text</p><p class="tag">Production slide only</p><p class="wk">Week 3</p></div><div class="step"><p class="num">5</p><p class="what">Find the intent</p><p class="tag">APEX_AI + JSON check</p><p class="wk">Weeks 1 and 3</p></div><div class="step"><p class="num">6a</p><p class="what">Policy question</p><p class="tag">AI Agent + PL/SQL tool</p><p class="wk">Week 3</p></div><div class="step"><p class="num">6b</p><p class="what">Claim question</p><p class="tag">AI Agent + PL/SQL tool</p><p class="wk">Week 3</p></div><div class="step"><p class="num">6c</p><p class="what">Product or branch</p><p class="tag">RAG in SQL + vector provider</p><p class="wk">Week 3</p></div><div class="step"><p class="num">7</p><p class="what">Write the reply</p><p class="tag">APEX_AI; unsure goes to a person</p><p class="wk">Week 3</p></div><div class="step dim"><p class="num">8</p><p class="what">Speak the reply</p><p class="tag">Production slide only</p><p class="wk">Week 3</p></div></div>
+<p class="foot">Noob Dev for Ceylinco · Week 1 · Block 5 · Case 2</p>
+<aside>TIME: 6 min. Checkpoint 3:07 -&gt; 3:13.
+Source: docs/week1-component-map.md, Case 2.
+1. Out of scope on stage: start from text transcripts in CALLS.transcript.
+2. Triage page: the agent picks BOT or SPECIALIST (CALLS.triage_route).
+3. AI safety flag (APEX_AI.GENERATE, ai_complaint_flag) catches accident or complaint calls the person missed. JSON in the prompt, checked with IS JSON (S2 failed, fallback chosen).
+4. SIP gateway and speech-to-text: production slide only.
+5. Intent: POLICY / CLAIM / PRODUCT_BRANCH / OTHER into CALLS.ai_intent. We did this today on three calls.
+6a/6b. AI Agent with PL/SQL tools get_policy_status / get_claim_status; the same functions as ORDS GET endpoints for show. S3, S5 and S7 all PASSED (20 and 21 Nov).
+6c. RAG in SQL: UTL_TO_CHUNKS, Gemini vector provider, VECTOR_DISTANCE, APEX_AI.GENERATE with clause citations. S6 PASSED (21 Nov): embeddings live from gemini_embed.
+7. APEX_AI.GENERATE writes CALLS.ai_reply. Low confidence or &quot;I don&#x27;t know&quot; -&gt; reply_status = NEEDS_HUMAN.
+8. Text-to-speech: production slide only.
+TRANSITION: &quot;Three ways the system answers.&quot;</aside>
+</section>
