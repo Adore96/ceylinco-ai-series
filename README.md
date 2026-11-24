@@ -6,6 +6,16 @@ Material for a three-session series by **Noob Dev** on building AI features with
 
 All data is synthetic. The insurer, **Lanka Shield Assurance**, is fictional.
 
+## Get the material
+
+Clone this repository before the first session. It holds the documents, SQL scripts and data used in all three weeks.
+
+```
+git clone https://github.com/Adore96/ceylinco-ai-series.git
+```
+
+The Week 1 deck opens with a QR code that links here.
+
 ## The sessions
 
 | Week | Topic | Builds |
@@ -34,6 +44,8 @@ docs/
   week1-component-map.md   each workflow step mapped to its APEX feature
   quick-sql.txt        the shared schema in Quick SQL shorthand
   apex-faq.md          questions from Oracle people, with sources
+presentation/
+  week1/               Week 1 deck (week1-deck.pptx), its slide source and the repo QR code
 ```
 
 ## How to run the SQL
