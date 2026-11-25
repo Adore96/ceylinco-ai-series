@@ -18,11 +18,11 @@ The Week 1 deck opens with a QR code that links here.
 
 ## The sessions
 
-| Week | Topic | Builds |
-|---|---|---|
-| 1 | APEX and Oracle AI, component by component | Demos only: vector search and chunking in SQL, classifying call transcripts |
-| 2 | Core app and garage estimate AI | Customer 360 app; image to JSON extraction, SQL checks, human approval, claim |
-| 3 | Intelligent call centre | Triage, intent, an AI agent with PL/SQL tools, RAG in SQL, replies |
+| Week | Topic                                      | Builds                                                                        |
+|------|--------------------------------------------|-------------------------------------------------------------------------------|
+| 1    | APEX and Oracle AI, component by component | Demos only: vector search and chunking in SQL, classifying call transcripts   |
+| 2    | Core app and garage estimate AI            | Customer 360 app; image to JSON extraction, SQL checks, human approval, claim |
+| 3    | Intelligent call centre                    | Triage, intent, an AI agent with PL/SQL tools, RAG in SQL, replies            |
 
 Full plan: `docs/plan.html`.
 

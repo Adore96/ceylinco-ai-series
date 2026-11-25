@@ -14,9 +14,9 @@ Three-session series (brand: Noob Dev) on AI in Oracle APEX for senior technical
 - **Synthetic data only.** Fictional insurer: Lanka Shield Assurance.
 - **Never commit** API keys, credentials, workspace names, schema names, App IDs, usernames, or the client's original workflow images.
 - **No database connection from here.** Every SQL script is pasted by hand into SQL Workshop. So:
-  - one idea per script, short;
-  - the header says where to paste it (SQL Commands or SQL Scripts), and the expected output;
-  - comments explain **why**, not what.
+    - one idea per script, short;
+    - the header says where to paste it (SQL Commands or SQL Scripts), and the expected output;
+    - comments explain **why**, not what.
 - **Verify every** package, function, parameter and click path against the official Oracle docs for **APEX 26.2** and **Oracle AI Database 26ai**. If only an older docs version confirms it, say which. Mark anything not confirmed with `UNVERIFIED:`.
 - **Not available** on the workspace: `DBMS_CLOUD`, Select AI (`DBMS_CLOUD_AI`), ONNX models. Do not use them.
 - **APEX 26.2 removed the RESTful Services pages** in SQL Workshop. Define ORDS endpoints with the ORDS PL/SQL API.
